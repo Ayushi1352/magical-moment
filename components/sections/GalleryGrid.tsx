@@ -61,8 +61,15 @@ export const GalleryGrid = ({ data }: { data: GalleryData }) => {
               key={item.id}
               data-reveal
               data-reveal-delay={(index % 5) * 70}
-              // the large couple photo spans two columns on phones and tablets
-              className={`relative lg:absolute lg:aspect-auto lg:[height:var(--h)] lg:[left:var(--x)] lg:[top:var(--y)] lg:[width:var(--w)] ${index === 5 ? "col-span-2 aspect-[913/430]" : "aspect-[4/3]"}`}
+              // phones and tablets: the large couple photo comes first across two columns, and on phones the last photo
+              // fills the last row, so the grid has no gaps
+              className={`relative lg:absolute lg:aspect-auto lg:[height:var(--h)] lg:[left:var(--x)] lg:[top:var(--y)] lg:[width:var(--w)] ${
+                index === 5
+                  ? "order-first col-span-2 aspect-[913/430] lg:order-none"
+                  : index === items.length - 1
+                    ? "col-span-2 aspect-[8/3] sm:col-span-1 sm:aspect-[4/3]"
+                    : "aspect-[4/3]"
+              }`}
               style={{ "--x": rem(left), "--y": rem(top), "--w": rem(width), "--h": rem(height) } as React.CSSProperties}
             >
               <button

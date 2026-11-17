@@ -13,7 +13,7 @@ const AUTOPLAY_MS = 6000;
 const Quote = ({ item, ratingLabel, className }: { item: TestimonialItem; ratingLabel: string; className: string }) => (
   <blockquote className={className}>
     <p className="max-w-[50rem] font-heading text-[1.2rem] leading-[1.5] text-[var(--color-text-black)] sm:text-[1.4rem] lg:text-[2.4rem] lg:leading-[3.44rem]">{item.quote}</p>
-    <footer className="mt-7 flex flex-wrap items-center gap-y-4 lg:mt-[4.1rem] lg:flex-nowrap">
+    <footer className="mt-7 flex flex-wrap items-center gap-y-4 lg:mt-[3.85rem] lg:flex-nowrap">
       <span className="relative size-[5.5rem] shrink-0 rounded-full border-[0.16rem] border-[var(--color-gold)] p-[0.2rem] lg:size-[9.06rem] lg:border-[0.25rem] lg:p-[0.25rem]">
         <span className="relative block size-full overflow-hidden rounded-full">
           <Image src={item.image} alt={item.name} fill sizes="145px" className="object-cover" />
@@ -24,9 +24,9 @@ const Quote = ({ item, ratingLabel, className }: { item: TestimonialItem; rating
         <span className="block font-heading text-[1.5rem] font-semibold leading-tight text-[var(--color-text-black)] lg:text-[2.6rem] lg:leading-[2.9rem]">{item.name}</span>
         <span className="mt-1 block font-heading text-[1.05rem] text-[var(--color-text-dark)] lg:mt-[0.45rem] lg:text-[1.72rem]">{item.role}</span>
       </span>
-      <span className="flex basis-full gap-[0.5rem] text-[var(--color-star)] lg:basis-auto lg:gap-[1.35rem]" role="img" aria-label={fill(ratingLabel, { stars: item.stars })}>
+      <span className="flex basis-full gap-[0.5rem] text-[var(--color-star)] lg:basis-auto lg:gap-[0.6rem]" role="img" aria-label={fill(ratingLabel, { stars: item.stars })}>
         {Array.from({ length: item.stars }, (_, n) => (
-          <Icon key={n} name="FaStar" className="size-6 lg:size-[1.6rem]" />
+          <Icon key={n} name="FaStar" className="size-6 lg:size-[2.3rem]" />
         ))}
       </span>
     </footer>
@@ -48,8 +48,8 @@ export const TestimonialSlider = ({ data }: { data: TestimonialsData }) => {
   }, [index, paused, count]);
 
   return (
-    <div data-reveal onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} className="mt-8 lg:mt-[4.45rem]">
-      <Icon name="RiDoubleQuotesL" className="-ml-[0.55rem] size-16 text-[var(--color-gold)] lg:-my-[1rem] lg:-ml-[0.85rem] lg:size-[8rem]" />
+    <div data-reveal onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} className="contents lg:mt-[2.5rem] lg:block">
+      <Icon name="RiDoubleQuotesL" className="-ml-[0.55rem] mt-8 size-16 text-[var(--color-gold)] lg:-my-[1rem] lg:-ml-[0.85rem] lg:size-[8rem]" />
 
       <div className="mt-2 grid lg:-mt-[0.6rem]" aria-live="polite">
         {/* every quote takes up the same cell unseen, so the block keeps the height of the longest one */}
@@ -64,7 +64,7 @@ export const TestimonialSlider = ({ data }: { data: TestimonialsData }) => {
         />
       </div>
 
-      <div className="mt-8 flex items-center gap-6 lg:ml-[8.94rem] lg:mt-[3.75rem] lg:gap-0">
+      <div className="order-last mt-10 flex items-center justify-center gap-6 lg:order-none lg:ml-[8.94rem] lg:mt-[3.75rem] lg:justify-start lg:gap-0">
         <button type="button" aria-label={data.previousLabel} onClick={() => go(-1)} className={`${roundOutlineClass} size-12 lg:size-[5.13rem]`}>
           <Icon name="LuChevronLeft" className="size-6 lg:size-[2.2rem]" strokeWidth={2.4} />
         </button>

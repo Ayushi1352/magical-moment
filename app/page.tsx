@@ -13,9 +13,10 @@ const templateData: WeddingTemplateData = rawData;
 const sectionData = templateData.categories.Wedding.sections;
 const commonData = templateData.common;
 const servicesData = sectionData.Services?.variants?.WeddingServices1;
+const contactFormData = sectionData.ContactForm?.variants?.WeddingContactForm1;
 
-// The form’s event list: every service card, then "Reception" and "Other Celebration"
-const eventOptions = [...(servicesData?.services ?? []).map((item) => item.title), "Reception", "Other Celebration"];
+// The form’s event list: every service card, then the extra event types of the form ("Reception" …)
+const eventOptions = [...(servicesData?.services ?? []).map((item) => item.title), ...(contactFormData?.extraEventOptions ?? [])];
 
 /*
   One landing page built from the Magical Moments design. Every button leads to the contact form.
@@ -33,7 +34,7 @@ export default function Home() {
       <FaqSection data={sectionData.Faq?.variants?.WeddingFaq1} />
       <ContactSection
         data={sectionData.Contact?.variants?.WeddingContact1}
-        form={sectionData.ContactForm?.variants?.WeddingContactForm1}
+        form={contactFormData}
         company={commonData.company}
         eventOptions={eventOptions}
       />

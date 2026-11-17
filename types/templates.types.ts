@@ -77,24 +77,19 @@ export interface FooterData {
   socialLinks: SocialLink[];
   copyrightText: string;
   backToTopLabel: string;
-}
-
-export interface NavLink extends LinkItem {
-  /** a dropdown under the link (Our Services) */
-  children?: LinkItem[];
+  backToTopUrl: string;
 }
 
 export interface HeaderData {
   logoUrl: string;
   homeLabel: string;
-  navLinks: NavLink[];
+  navLinks: LinkItem[];
   buttonText: string;
   buttonUrl: string;
   mainNavLabel: string;
   mobileNavLabel: string;
   openMenuLabel: string;
   closeMenuLabel: string;
-  submenuLabel: string;
 }
 
 /** A title with its highlighted words (titleAccent) in gold */
@@ -245,14 +240,8 @@ export interface ContactFormData {
     eventType: string;
     message: string;
   };
-  icons: {
-    name: string;
-    email: string;
-    phone: string;
-    date: string;
-    eventType: string;
-    message: string;
-  };
+  /** event types after the service names in the form's event list */
+  extraEventOptions: string[];
   button: string;
   sending: string;
   successTitle: string;

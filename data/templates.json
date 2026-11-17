@@ -26,32 +26,32 @@
           "icon": "FaMapMarkerAlt",
           "footerIcon": "LuMapPin",
           "title": "Our Location",
-          "lines": ["A-102, Sector 62, Noida,", "Uttar Pradesh – 201309, India"],
-          "url": "https://www.google.com/maps/search/?api=1&query=A-102+Sector+62+Noida+Uttar+Pradesh+201309+India"
+          "lines": ["123 Main Street,", "New York, NY 10001, USA"],
+          "url": "https://www.google.com/maps/search/?api=1&query=123+Main+Street+New+York+NY+10001+USA"
         },
         {
           "id": "phone",
           "icon": "FaPhoneAlt",
           "footerIcon": "LuPhone",
           "title": "Call Us",
-          "lines": ["+91 98765 43210"],
-          "url": "tel:+919876543210"
+          "lines": ["+1 0000000000"],
+          "url": "tel:+10000000000"
         },
         {
           "id": "email",
           "icon": "FaEnvelope",
           "footerIcon": "FaEnvelopeOpen",
           "title": "Email Us",
-          "lines": ["info@magicalmoments.in"],
-          "url": "mailto:info@magicalmoments.in"
+          "lines": ["info@xyz.com"],
+          "url": "mailto:info@xyz.com"
         },
         {
           "id": "website",
           "icon": "TbWorld",
           "footerIcon": "TbWorld",
           "title": "Visit Our Website",
-          "lines": ["www.magicalmoments.in"],
-          "url": "https://www.magicalmoments.in"
+          "lines": ["www.xyz.com"],
+          "url": "https://www.xyz.com"
         }
       ]
     },
@@ -77,8 +77,9 @@
         { "id": "twitter", "icon": "FaTwitter", "label": "Twitter", "url": "https://twitter.com/" },
         { "id": "instagram", "icon": "FaInstagram", "label": "Instagram", "url": "https://www.instagram.com/" }
       ],
-      "copyrightText": "Copyright © {year} | Magical Moments | All Rights Reserved",
-      "backToTopLabel": "Back to top"
+      "copyrightText": "© {year} Magical Moments. All Rights Reserved. Powered by Lestow.",
+      "backToTopLabel": "Back to top",
+      "backToTopUrl": "#home"
     }
   },
   "categories": {
@@ -92,17 +93,7 @@
               "navLinks": [
                 { "id": "home", "label": "Home", "url": "#home" },
                 { "id": "about-us", "label": "About Us", "url": "#about" },
-                {
-                  "id": "our-services",
-                  "label": "Our Services",
-                  "url": "#services",
-                  "children": [
-                    { "id": "wedding-planning", "label": "Wedding Planning", "url": "#services" },
-                    { "id": "engagement-ceremonies", "label": "Engagement Ceremonies", "url": "#services" },
-                    { "id": "mehendi-sangeet", "label": "Mehendi & Sangeet", "url": "#services" },
-                    { "id": "how-it-works", "label": "How It Works", "url": "#process" }
-                  ]
-                },
+                { "id": "our-services", "label": "Our Services", "url": "#services" },
                 { "id": "gallery", "label": "Gallery", "url": "#gallery" },
                 { "id": "testimonials", "label": "Testimonials", "url": "#testimonials" },
                 { "id": "faqs", "label": "FAQs", "url": "#faq" }
@@ -112,8 +103,7 @@
               "mainNavLabel": "Main navigation",
               "mobileNavLabel": "Mobile navigation",
               "openMenuLabel": "Open menu",
-              "closeMenuLabel": "Close menu",
-              "submenuLabel": "Show {label}"
+              "closeMenuLabel": "Close menu"
             }
           }
         },
@@ -161,8 +151,8 @@
               "titleTop": "Create Unforgettable",
               "titleAccent": "Celebrations",
               "description": "From intimate gatherings to grand celebrations, Magical Moments offers end-to-end planning and execution for every special occasion.",
-              "leafLeft": { "src": "/images/service-leaf-left.webp", "width": 101, "height": 118 },
-              "leafRight": { "src": "/images/service-leaf-right.webp", "width": 121, "height": 118 },
+              "leafLeft": { "src": "/images/card-leaf-left.webp", "width": 98, "height": 104 },
+              "leafRight": { "src": "/images/card-leaf-right.webp", "width": 119, "height": 104 },
               "previousLabel": "Previous service",
               "nextLabel": "Next service",
               "showLabel": "Show {title}",
@@ -384,14 +374,7 @@
                 "eventType": "Event Type",
                 "message": "Your Message"
               },
-              "icons": {
-                "name": "LuUserRound",
-                "email": "LuMail",
-                "phone": "LuPhone",
-                "date": "LuCalendarDays",
-                "eventType": "LuList",
-                "message": "LuMessageCircleMore"
-              },
+              "extraEventOptions": ["Reception", "Other Celebration"],
               "button": "Submit Enquiry",
               "sending": "Sending…",
               "successTitle": "Thank you, {name}!",

@@ -44,18 +44,18 @@ export const ServicesSlider = ({ data }: { data: ServicesData }) => {
             <div className="relative aspect-[534/476] shrink-0 overflow-hidden">
               <Image src={service.image} alt={service.imageAlt} fill quality={90} sizes="(min-width: 1024px) 534px, (min-width: 640px) 46vw, 92vw" className="object-cover" />
             </div>
-            <Image src={data.leafLeft.src} alt="" width={data.leafLeft.width} height={data.leafLeft.height} sizes="101px" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] lg:w-[6.3rem]" />
-            <Image src={data.leafRight.src} alt="" width={data.leafRight.width} height={data.leafRight.height} sizes="121px" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] lg:w-[7.56rem]" />
-            <div className="relative flex flex-1 flex-col items-center px-6 pb-10 pt-1 text-center lg:pb-0 lg:pt-[0.55rem]">
-              <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-[25rem] lg:text-[2.9rem] lg:leading-[2.85rem]">
+            <Image src={data.leafLeft.src} alt="" width={data.leafLeft.width} height={data.leafLeft.height} sizes="98px" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] lg:w-[6.13rem]" />
+            <Image src={data.leafRight.src} alt="" width={data.leafRight.width} height={data.leafRight.height} sizes="119px" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] lg:w-[7.44rem]" />
+            <div className="relative flex flex-1 flex-col items-center px-6 pb-10 pt-1 text-center lg:pb-0 lg:pt-[1.35rem]">
+              <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-none lg:text-[2.8rem] lg:leading-[2.8rem]">
                 {service.title}
               </h3>
-              <span aria-hidden="true" className="mt-4 flex items-center gap-[0.85rem] text-[var(--color-gold)] lg:mt-[1.05rem]">
+              <span aria-hidden="true" className="mt-4 flex items-center gap-[0.85rem] text-[var(--color-gold)] lg:mt-[1.8rem]">
                 <span className="h-[0.125rem] w-16 bg-current lg:w-[6.25rem]" />
                 <span className="size-[0.7rem] rotate-45 border-[0.14rem] border-current lg:size-[0.82rem]" />
                 <span className="h-[0.125rem] w-16 bg-current lg:w-[6.25rem]" />
               </span>
-              <p className="mt-4 max-w-[17rem] font-ui text-[1.125rem] leading-[1.45] text-[var(--color-text)] lg:mt-[1.15rem] lg:max-w-[22.5rem] lg:text-[1.875rem] lg:leading-[2.44rem]">{service.text}</p>
+              <p className="mt-4 max-w-[17rem] font-ui text-[1.125rem] leading-[1.45] text-[var(--color-text)] lg:mt-[1.3rem] lg:max-w-[24rem] lg:text-[2rem] lg:leading-[2.44rem]">{service.text}</p>
             </div>
           </li>
         ))}

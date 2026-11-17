@@ -9,9 +9,18 @@ import { buttonArrow, buttonClass } from "@/components/ui/buttonStyles";
 
 /** White fields with a light grey border and a gold icon in front */
 const base =
-  "w-full appearance-none rounded-[0.6rem] border-[0.1rem] border-[var(--color-field-border)] bg-[var(--color-white)] pl-12 pr-4 font-ui text-[1.05rem] text-[var(--color-text-black)] outline-none transition-colors placeholder:text-[var(--color-text-dark)] focus:border-[var(--color-gold)] lg:rounded-[0.75rem] lg:pl-[5rem] lg:text-[1.7rem]";
+  "w-full appearance-none rounded-[0.6rem] border-[0.1rem] border-[var(--color-field-border)] bg-[var(--color-white)] pl-12 pr-4 font-ui text-[1.05rem] text-[var(--color-text-black)] outline-none transition-colors placeholder:text-[var(--color-text-dark)] focus:border-[var(--color-gold)] lg:rounded-[0.75rem] lg:pl-[5rem] lg:text-[1.95rem]";
 const field = `${base} h-14 lg:h-[4.63rem]`;
-const iconClass = "pointer-events-none absolute left-4 size-6 text-[var(--color-gold)] lg:left-[1.5rem] lg:size-[2.13rem]";
+/** the design's icon in front of each field */
+const icons = {
+  name: "LuUserRound",
+  email: "LuMail",
+  phone: "LuPhone",
+  date: "LuCalendarDays",
+  eventType: "LuList",
+  message: "LuMessageCircleMore",
+};
+const iconClass = "pointer-events-none absolute left-4 size-6 text-[var(--color-gold)] lg:left-[1.4rem] lg:size-[2.3rem]";
 
 const Field = ({ name, type = "text", label, icon, autoComplete }: { name: string; type?: string; label: string; icon: string; autoComplete?: string }) => (
   <label className="relative flex items-center">
@@ -78,7 +87,7 @@ const SelectField = ({ name, placeholder, icon, options }: { name: string; place
 export const ContactForm = ({ data, eventOptions }: { data?: ContactFormData; eventOptions: string[] }) => {
   const submit = useDummySubmit();
   if (!data) return null;
-  const { fields, icons } = data;
+  const { fields } = data;
 
   // remounting the form (via key) after each send clears every field, including the select
   return (
@@ -87,7 +96,7 @@ export const ContactForm = ({ data, eventOptions }: { data?: ContactFormData; ev
       onSubmit={submit.onSubmit}
       onInput={submit.onInput}
       aria-busy={submit.sending}
-      className="mt-5 grid gap-x-[1.5rem] gap-y-4 sm:grid-cols-2 lg:mt-[2.45rem] lg:gap-y-[1.66rem]"
+      className="mt-5 grid gap-x-[1.5rem] gap-y-4 sm:grid-cols-2 lg:mt-[2.15rem] lg:gap-y-[1.66rem]"
     >
       <Field name="name" label={fields.name} icon={icons.name} autoComplete="name" />
       <Field name="email" type="email" label={fields.email} icon={icons.email} autoComplete="email" />
@@ -120,7 +129,7 @@ export const ContactForm = ({ data, eventOptions }: { data?: ContactFormData; ev
         <button
           type="submit"
           disabled={submit.sending}
-          className={`${buttonClass} h-14 gap-3 rounded-[0.75rem] font-heading text-[1.4rem] font-bold disabled:cursor-wait disabled:opacity-80 sm:col-span-2 lg:mt-[0.4rem] lg:h-[5.88rem] lg:gap-[1.4rem] lg:rounded-[0.9rem] lg:text-[2.85rem]`}
+          className={`${buttonClass} h-14 gap-3 rounded-[0.75rem] !from-[var(--color-gold-submit)] !to-[var(--color-gold-submit)] font-heading text-[1.4rem] font-bold disabled:cursor-wait disabled:opacity-80 sm:col-span-2 lg:mt-[0.4rem] lg:h-[5.88rem] lg:gap-[1.4rem] lg:rounded-[0.9rem] lg:text-[2.85rem]`}
         >
           {submit.sending ? (
             <>

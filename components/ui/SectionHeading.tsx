@@ -79,7 +79,7 @@ export const SectionHeading = ({
       {titleTop} <span className={accentClass}>{titleAccent}</span>
     </h2>
     {description && (
-      <p className={`mx-auto mt-3 max-w-[48rem] font-sans text-base leading-relaxed text-[var(--color-text)] sm:text-lg lg:mt-[0.4rem] lg:max-w-none lg:text-[1.8rem] lg:leading-[2.5rem] ${descriptionClass}`}>
+      <p className={`mx-auto mt-3 max-w-[48rem] font-sans text-base leading-relaxed text-[var(--color-text)] sm:text-lg lg:mt-[0.4rem] lg:max-w-none lg:text-[1.95rem] lg:leading-[2.5rem] ${descriptionClass}`}>
         {description}
       </p>
     )}
