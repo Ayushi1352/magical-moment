@@ -11,7 +11,7 @@ import { sectionId, useActiveSection } from "@/components/ui/useActiveSection";
 
 /** Desktop link with the gold underline of the current section */
 const linkClass = (current: boolean) =>
-  `relative py-[0.4rem] font-ui text-[1.5625rem] font-medium leading-none transition-colors after:absolute after:inset-x-0 after:-bottom-[0.95rem] after:h-[0.25rem] after:rounded-full after:bg-[var(--color-gold)] after:transition-transform after:duration-300 ${
+  `relative -mt-[0.25rem] py-[0.4rem] font-ui text-[1.5625rem] font-medium leading-none transition-colors after:absolute after:inset-x-0 after:-bottom-[0.8rem] after:h-[0.375rem] after:rounded-full after:bg-[var(--color-gold)] after:transition-transform after:duration-300 ${
     current ? "text-[var(--color-gold)] after:scale-x-100" : "text-[var(--color-text-black)] after:scale-x-0 hover:text-[var(--color-gold)]"
   }`;
 

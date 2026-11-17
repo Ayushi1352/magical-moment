@@ -15,11 +15,11 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
     <section id={data.id} className="relative bg-[var(--color-bg-main)] pt-[4.5rem] sm:pt-[5.5rem] lg:h-[81.25rem] lg:pt-0">
       <div className="px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14 lg:p-0">
         <h1
-          className={`text-center font-heading text-[3.4rem] font-bold leading-[1] tracking-[-0.01em] text-[var(--color-navy)] sm:text-[5.5rem] lg:absolute lg:left-[7.9rem] lg:top-[17.2rem] lg:text-left lg:text-[8.2rem] lg:leading-[6.8rem] ${enter}`}
+          className={`text-center font-heading text-[3.4rem] font-bold leading-[1] tracking-[-0.01em] text-[var(--color-navy)] sm:text-[5.5rem] lg:absolute lg:left-[7.9rem] lg:top-[17.9rem] lg:text-left lg:text-[7.57rem] lg:leading-[7rem] ${enter}`}
         >
           <span className="block">{data.titleTop}</span>
-          <span className="block font-semibold italic text-[var(--color-gold)] lg:-ml-[0.2rem]">{data.titleAccent}</span>
-          <span className="block">{data.titleBottom}</span>
+          <span className="block font-semibold italic text-[var(--color-gold)] lg:-ml-[0.2rem] lg:text-[7.85rem]">{data.titleAccent}</span>
+          <span className="block lg:tracking-[-0.035em]">{data.titleBottom}</span>
         </h1>
 
         {/* photos: on phones and tablets the mandap photo, then the celebration photo */}

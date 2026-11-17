@@ -52,6 +52,7 @@ type HeadingProps = {
   labelTextClass?: string;
   labelSizeClass?: string;
   labelLineClass?: string;
+  labelGapClass?: string;
   /** title size and the space above it */
   titleClassName?: string;
   descriptionClass?: string;
@@ -67,12 +68,13 @@ export const SectionHeading = ({
   labelTextClass,
   labelSizeClass,
   labelLineClass,
+  labelGapClass,
   titleClassName = "lg:mt-[1.4rem] lg:text-[5.25rem]",
   descriptionClass = "",
   className = "",
 }: HeadingProps) => (
   <div data-reveal className={`flex flex-col items-center text-center ${className}`}>
-    <SectionLabel text={label} textClass={labelTextClass} sizeClass={labelSizeClass} lineClass={labelLineClass} />
+    <SectionLabel text={label} textClass={labelTextClass} sizeClass={labelSizeClass} lineClass={labelLineClass} gapClass={labelGapClass} />
     <h2 className={`mt-4 text-[2.25rem] sm:text-[3rem] lg:whitespace-nowrap ${titleClass} ${titleClassName}`}>
       {titleTop} <span className={accentClass}>{titleAccent}</span>
     </h2>

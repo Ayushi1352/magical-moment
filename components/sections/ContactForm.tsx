@@ -1,157 +1,140 @@
 "use client";
 
-import { useDummySubmit } from "@/components/ui/useDummySubmit";
-import { FormSuccess, Spinner } from "@/components/ui/FormSuccess";
+import { useState } from "react";
 import type { ContactFormData } from "@/types/templates.types";
+import { useDummySubmit } from "@/components/ui/useDummySubmit";
+import { Icon } from "@/components/ui/Icon";
+import { FormSuccess, Spinner } from "@/components/ui/FormSuccess";
+import { buttonArrow, buttonClass } from "@/components/ui/buttonStyles";
 
-export const ContactForm = ({
-  data,
-  serviceOptions,
-}: {
-  data?: ContactFormData;
-  serviceOptions?: string[];
-}) => {
-  const { status, name, sending, showMessage, visibleFor, onSubmit, onInput, dismiss } = useDummySubmit();
+/** White fields with a light grey border and a gold icon in front */
+const base =
+  "w-full appearance-none rounded-[0.6rem] border-[0.1rem] border-[var(--color-field-border)] bg-[var(--color-white)] pl-12 pr-4 font-ui text-[1.05rem] text-[var(--color-text-black)] outline-none transition-colors placeholder:text-[var(--color-text-dark)] focus:border-[var(--color-gold)] lg:rounded-[0.75rem] lg:pl-[5rem] lg:text-[1.7rem]";
+const field = `${base} h-14 lg:h-[4.63rem]`;
+const iconClass = "pointer-events-none absolute left-4 size-6 text-[var(--color-gold)] lg:left-[1.5rem] lg:size-[2.13rem]";
 
-  if (!data) return null;
+const Field = ({ name, type = "text", label, icon, autoComplete }: { name: string; type?: string; label: string; icon: string; autoComplete?: string }) => (
+  <label className="relative flex items-center">
+    <Icon name={icon} className={iconClass} strokeWidth={1.7} />
+    <input name={name} type={type} required placeholder={label} aria-label={label} autoComplete={autoComplete} className={field} />
+  </label>
+);
+
+/** Shows "Event Date" like the other fields and turns into a date picker when used */
+const DateField = ({ name, label, icon }: { name: string; label: string; icon: string }) => {
+  const [type, setType] = useState("text");
 
   return (
-    <div className="bg-[#fdfbf7] rounded-3xl p-8 sm:p-10 border border-[#dfb76c]/60 shadow-[0_10px_35px_rgba(184,134,45,0.08)] flex flex-col justify-between">
-      <div>
-        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0c1a2f] mb-2">
-          {data.title}
-        </h3>
-        <p className="text-xs sm:text-sm text-[#665e52] mb-6">
-          {data.description}
-        </p>
+    <label className="relative flex items-center">
+      <Icon name={icon} className={iconClass} strokeWidth={1.7} />
+      <input
+        name={name}
+        type={type}
+        placeholder={label}
+        aria-label={label}
+        onFocus={(event) => {
+          setType("date");
+          // open the calendar straight away where the browser supports it
+          requestAnimationFrame(() => event.target.showPicker?.());
+        }}
+        onBlur={(event) => {
+          if (!event.target.value) setType("text");
+        }}
+        className={field}
+      />
+    </label>
+  );
+};
 
-        {showMessage && (
-          <div className="mb-6">
-            <FormSuccess
-              name={name}
-              title={data.successTitle}
-              message={data.successMessage}
-              leaving={status === "leaving"}
-              visibleFor={visibleFor}
-              onClose={dismiss}
-            />
-          </div>
-        )}
+const SelectField = ({ name, placeholder, icon, options }: { name: string; placeholder: string; icon: string; options: string[] }) => {
+  const [value, setValue] = useState("");
 
-        <form onSubmit={onSubmit} onInput={onInput} className="space-y-4">
-          
-          {/* Row 1: Name and Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-                Your Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="e.g. Maya Patel"
-                className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] placeholder-[#a69d8f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all"
-              />
-            </div>
+  return (
+    <label className="relative flex items-center sm:col-span-2">
+      <Icon name={icon} className={iconClass} strokeWidth={1.7} />
+      <select
+        name={name}
+        value={value}
+        required
+        onChange={(event) => setValue(event.target.value)}
+        aria-label={placeholder}
+        className={`${field} cursor-pointer pr-12 ${value === "" ? "text-[var(--color-text-dark)]" : ""}`}
+      >
+        <option value="" disabled>
+          {placeholder}
+        </option>
+        {options.map((option) => (
+          <option key={option} value={option} className="text-[var(--color-text-black)]">
+            {option}
+          </option>
+        ))}
+      </select>
+      <Icon name="LuChevronDown" className="pointer-events-none absolute right-4 size-6 text-[var(--color-text-black)] lg:right-[1.9rem] lg:size-[1.7rem]" strokeWidth={2.6} />
+    </label>
+  );
+};
 
-            <div>
-              <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                required
-                placeholder="+1 (555) 000-0000"
-                className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] placeholder-[#a69d8f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all"
-              />
-            </div>
-          </div>
+/** The "Send Us a Message" form; dummy submit with a thank-you message in place of the button */
+export const ContactForm = ({ data, eventOptions }: { data?: ContactFormData; eventOptions: string[] }) => {
+  const submit = useDummySubmit();
+  if (!data) return null;
+  const { fields, icons } = data;
 
-          {/* Row 2: Event Type and Date */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-                Event Type
-              </label>
-              <select
-                name="eventType"
-                defaultValue={data.eventTypes[0]}
-                className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all"
-              >
-                {(serviceOptions || data.eventTypes).map((type, idx) => (
-                  <option key={idx} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-                Estimated Date
-              </label>
-              <input
-                type="date"
-                name="date"
-                className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all"
-              />
-            </div>
-          </div>
-
-          {/* Row 3: Guest Count */}
-          <div>
-            <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-              Estimated Guest Count
-            </label>
-            <select
-              name="guestCount"
-              defaultValue={data.guestCounts[1]}
-              className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all"
-            >
-              {data.guestCounts.map((count, idx) => (
-                <option key={idx} value={count}>
-                  {count}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Row 4: Message */}
-          <div>
-            <label className="block text-xs font-semibold text-[#0c1a2f] uppercase tracking-wider mb-1.5">
-              Tell Us About Your Vision
-            </label>
-            <textarea
-              name="message"
-              rows={4}
-              placeholder="Describe your desired venue, color theme, or specific traditions..."
-              className="w-full px-4 py-3 rounded-xl border border-[#dfb76c]/60 bg-white text-sm text-[#0c1a2f] placeholder-[#a69d8f] focus:outline-none focus:border-[#b8862d] focus:ring-1 focus:ring-[#b8862d] transition-all resize-none"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={sending}
-            className="gold-btn w-full py-4 rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-widest text-white shadow-lg hover:shadow-xl transition-all duration-300 mt-2 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
-          >
-            {sending ? (
-              <>
-                <Spinner className="size-4" />
-                <span>Sending...</span>
-              </>
-            ) : (
-              <>
-                <span>{data.submitButtonText}</span>
-                <span className="text-base">→</span>
-              </>
-            )}
-          </button>
-
-        </form>
-      </div>
-    </div>
+  // remounting the form (via key) after each send clears every field, including the select
+  return (
+    <form
+      key={submit.round}
+      onSubmit={submit.onSubmit}
+      onInput={submit.onInput}
+      aria-busy={submit.sending}
+      className="mt-5 grid gap-x-[1.5rem] gap-y-4 sm:grid-cols-2 lg:mt-[2.45rem] lg:gap-y-[1.66rem]"
+    >
+      <Field name="name" label={fields.name} icon={icons.name} autoComplete="name" />
+      <Field name="email" type="email" label={fields.email} icon={icons.email} autoComplete="email" />
+      <Field name="phone" type="tel" label={fields.phone} icon={icons.phone} autoComplete="tel" />
+      <DateField name="date" label={fields.date} icon={icons.date} />
+      <SelectField name="eventType" placeholder={fields.eventType} icon={icons.eventType} options={eventOptions} />
+      <label className="relative block sm:col-span-2">
+        <Icon name={icons.message} className={`${iconClass} top-4 lg:top-[1.4rem]`} strokeWidth={1.7} />
+        <textarea
+          name="message"
+          required
+          rows={5}
+          placeholder={fields.message}
+          aria-label={fields.message}
+          className={`${base} h-40 resize-none pt-4 lg:h-[12.5rem] lg:pt-[1.55rem]`}
+        />
+      </label>
+      {submit.showMessage ? (
+        <FormSuccess
+          name={submit.name}
+          title={data.successTitle}
+          message={data.success}
+          leaving={submit.status === "leaving"}
+          visibleFor={submit.visibleFor}
+          onClose={submit.dismiss}
+          closeLabel={data.closeLabel}
+          className="sm:col-span-2 lg:mt-[0.4rem]"
+        />
+      ) : (
+        <button
+          type="submit"
+          disabled={submit.sending}
+          className={`${buttonClass} h-14 gap-3 rounded-[0.75rem] font-heading text-[1.4rem] font-bold disabled:cursor-wait disabled:opacity-80 sm:col-span-2 lg:mt-[0.4rem] lg:h-[5.88rem] lg:gap-[1.4rem] lg:rounded-[0.9rem] lg:text-[2.85rem]`}
+        >
+          {submit.sending ? (
+            <>
+              <Spinner className="size-6" />
+              {data.sending}
+            </>
+          ) : (
+            <>
+              {data.button}
+              <Icon name="LuArrowRight" className={`${buttonArrow} size-7 lg:size-[2.6rem]`} strokeWidth={2.2} />
+            </>
+          )}
+        </button>
+      )}
+    </form>
   );
 };

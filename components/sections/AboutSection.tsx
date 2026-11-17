@@ -20,16 +20,16 @@ export const AboutSection = ({ data }: { data?: AboutData }) => {
   return (
     <section id={data.id} className="relative scroll-mt-[4.5rem] bg-[var(--color-bg-soft)] lg:h-[73.75rem] lg:scroll-mt-[6.25rem]">
       <div className="px-4 py-14 sm:px-6 sm:py-16 lg:p-0">
-        <div data-reveal className="lg:absolute lg:left-[8.44rem] lg:top-[5.9rem]">
+        <div data-reveal className="lg:absolute lg:left-[8.44rem] lg:top-[5.65rem]">
           <SectionLabel
             text={data.label}
             lines="after"
-            sizeClass="text-[1.1rem] tracking-[0.3em] lg:text-[2.4rem] lg:tracking-[0.3em]"
+            sizeClass="text-[1.1rem] tracking-[0.3em] lg:text-[2.4rem] lg:tracking-[0.242em]"
             lineClass="w-14 lg:w-[10.3rem]"
             gapClass="gap-4 lg:gap-[1.6rem]"
           />
-          <h2 className={`mt-4 text-[2.4rem] !font-medium sm:text-[3.4rem] lg:mt-[2.1rem] lg:whitespace-nowrap lg:text-[6rem] lg:leading-[6.55rem] ${titleClass}`}>
-            <span className="block">{data.titleTop}</span>
+          <h2 className={`mt-4 text-[2.4rem] sm:text-[3.4rem] lg:mt-[2.35rem] lg:whitespace-nowrap lg:text-[6rem] lg:leading-[6.55rem] ${titleClass}`}>
+            <span className="block lg:text-[6.4rem]">{data.titleTop}</span>
             <span className="block">
               {data.titleAccentLead} <span className={accentClass}>{data.titleAccent}</span>
             </span>
@@ -46,7 +46,7 @@ export const AboutSection = ({ data }: { data?: AboutData }) => {
 
         <p
           data-reveal
-          className="mx-auto mt-10 max-w-3xl text-center font-heading text-[1.1rem] leading-[1.6] text-[var(--color-text-dark)] sm:text-[1.3rem] lg:absolute lg:inset-x-0 lg:top-[59.7rem] lg:mt-0 lg:max-w-none lg:text-[2.1rem] lg:leading-[2.98rem]"
+          className="mx-auto mt-10 max-w-3xl text-center font-heading text-[1.1rem] leading-[1.6] text-[var(--color-text-dark)] sm:text-[1.3rem] lg:absolute lg:inset-x-0 lg:top-[59.7rem] lg:mt-0 lg:max-w-none lg:text-[2.28rem] lg:leading-[3.03rem]"
         >
           {data.descriptionLines.map((line) => {
             const [before, after] = line.split("{brand}");

@@ -47,3 +47,9 @@
   --color-shadow-menu: rgba(11, 26, 51, 0.25);
   --color-lightbox: rgba(6, 25, 40, 0.92);
 }
+
+/* The design's serif is the sturdy text cut of Source Serif at every size (not the thin, narrow display cut) */
+.font-heading {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 20;
+}

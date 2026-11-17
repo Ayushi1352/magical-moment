@@ -2,7 +2,7 @@
   "common": {
     "theme": {
       "fonts": {
-        "primary": "var(--font-dm-sans), Arial, sans-serif",
+        "primary": "var(--font-figtree), Arial, sans-serif",
         "heading": "var(--font-source-serif), Georgia, 'Times New Roman', serif",
         "ui": "var(--font-source-sans), Arial, sans-serif"
       }
@@ -282,7 +282,7 @@
                   "id": "ananya-verma",
                   "name": "Ananya Verma",
                   "role": "Bride – Jaipur, India",
-                  "quote": "From the mehendi to the reception, every detail was handled with so much love. Our families could simply enjoy each moment while the team took care of everything.",
+                  "quote": "Every detail of our mehendi and reception was handled with love. Our families simply enjoyed each moment while the team took care of the rest.",
                   "image": "/images/client-ananya.webp",
                   "stars": 5
                 },
@@ -298,7 +298,7 @@
                   "id": "sneha-kapoor",
                   "name": "Sneha Kapoor",
                   "role": "Bride – Mumbai, India",
-                  "quote": "Our sunset engagement looked exactly like the picture in our heads. The décor, the flowers and the timing were perfect, and the whole team was a joy to work with.",
+                  "quote": "Our sunset engagement looked exactly as we imagined. The décor, flowers and timing were perfect, and the whole team was a joy to work with.",
                   "image": "/images/client-sneha.webp",
                   "stars": 5
                 }

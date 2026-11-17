@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Figtree, Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import rawData from "@/data/templates.json";
 import type { RootVariables, WeddingTemplateData } from "@/types/templates.types";
 import { Header } from "@/components/common/Header";
@@ -7,7 +7,7 @@ import { Footer } from "@/components/common/Footer";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import "./globals.css";
 
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], fallback: ["Arial", "sans-serif"], variable: "--font-dm-sans" });
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600"], fallback: ["Arial", "sans-serif"], variable: "--font-figtree" });
 const sourceSans = Source_Sans_3({ subsets: ["latin"], weight: ["400", "500", "600", "700"], fallback: ["Arial", "sans-serif"], variable: "--font-source-sans" });
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       // Root font size: 16px, and from 1024px up it follows the 1920px design (1rem = 1/120 of the screen, at most 16px),
       // so a 1920px screen shows the design 1:1 and 1024px shows the same layout, only smaller. Every size on the page is
       // in rem, so it all scales together. Header and footer links scroll smoothly to their section on this one page.
-      className={`${dmSans.variable} ${sourceSans.variable} ${sourceSerif.variable} h-full text-[16px] lg:text-[length:min(16px,calc(100vw/120))] scroll-smooth antialiased [&_:where(a[href],button:not(:disabled),select,summary,[role=button])]:cursor-pointer motion-reduce:scroll-auto motion-reduce:[&_*]:!duration-[0.01ms]`}
+      className={`${figtree.variable} ${sourceSans.variable} ${sourceSerif.variable} h-full text-[16px] lg:text-[length:min(16px,calc(100vw/120))] scroll-smooth antialiased [&_:where(a[href],button:not(:disabled),select,summary,[role=button])]:cursor-pointer motion-reduce:scroll-auto motion-reduce:[&_*]:!duration-[0.01ms]`}
     >
       <body className="min-h-full bg-[var(--color-bg-backdrop)] font-sans text-[var(--color-text)] selection:bg-[var(--color-gold)] selection:text-[var(--color-white)]">
         {/*

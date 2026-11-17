@@ -1,107 +1,109 @@
+import Image from "next/image";
 import type { CompanyData, ContactData, ContactFormData } from "@/types/templates.types";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Icon } from "@/components/ui/Icon";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
-export const ContactSection = ({
-  data,
-  form,
-  company,
-  serviceOptions,
-}: {
+type Props = {
   data?: ContactData;
   form?: ContactFormData;
   company: CompanyData;
-  serviceOptions?: string[];
-}) => {
+  /** choices of the form’s event list (built in app/page.tsx from the Services section) */
+  eventOptions: string[];
+};
+
+/** Centred heading; the navy contact card on the left and the message form on the right (sizes from the 1920px design) */
+export const ContactSection = ({ data, form, company, eventOptions }: Props) => {
   if (!data) return null;
 
   return (
-    <section id={data.id} className="py-20 md:py-28 bg-[#ffffff] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div data-reveal>
-          <SectionHeading
-            label={data.label}
-            titlePart1={data.titlePart1}
-            titleHighlight={data.titleHighlight}
-            description={data.description}
-          />
-        </div>
+    <section id={data.id} className="relative scroll-mt-[4.5rem] bg-[var(--color-bg-soft)] lg:h-[83rem] lg:scroll-mt-[6.25rem]">
+      <div className="px-4 py-14 sm:px-6 sm:py-16 lg:px-0 lg:pb-0 lg:pt-[5.75rem]">
+        <SectionHeading
+          label={data.label}
+          titleTop={data.titleTop}
+          titleAccent={data.titleAccent}
+          description={data.description}
+          labelTextClass="text-[var(--color-text-black)]"
+          labelSizeClass="text-[1.1rem] tracking-[0.4em] lg:text-[3.19rem] lg:tracking-[0.27em]"
+          labelLineClass="w-12 lg:w-[9.69rem]"
+          labelGapClass="gap-4 lg:gap-[2.63rem]"
+          titleClassName="!font-bold !text-[var(--color-text-black)] lg:mt-[1.35rem] lg:text-[5.5rem] lg:leading-[5.5rem] lg:!tracking-[-0.03em]"
+          descriptionClass="lg:!mt-[0.75rem] lg:!text-[2.36rem] text-[var(--color-text-black)]"
+        />
 
-        {/* 2-Column Contact Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
-          {/* Left Card: Luxury Navy Card */}
+        <div className="mx-auto mt-10 grid max-w-[47rem] gap-8 lg:mt-0 lg:block lg:max-w-none">
+          {/* contact card */}
           <div
-            className="lg:col-span-5 bg-[#07162c] text-white rounded-3xl p-8 sm:p-10 border-2 border-[#dfb76c] shadow-[0_20px_50px_rgba(7,22,44,0.25)] flex flex-col justify-between relative overflow-hidden"
             data-reveal
+            className="relative overflow-hidden rounded-[2.25rem] bg-[var(--color-navy-deep)] px-6 pb-10 pt-6 text-[var(--color-white)] sm:px-10 lg:absolute lg:left-[8.94rem] lg:top-[23.19rem] lg:h-[53.19rem] lg:w-[47.13rem] lg:rounded-[4rem] lg:p-0"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#dfb76c]/10 rounded-full blur-2xl pointer-events-none" />
-
-            <div>
-              {/* Crown Motif */}
-              <div className="flex justify-center mb-4">
-                <div className="h-12 w-12 rounded-full border border-[#dfb76c]/60 flex items-center justify-center text-[#dfb76c]">
-                  <Icon name="crown" className="w-6 h-6" />
-                </div>
-              </div>
-
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-center gold-text-gradient tracking-wide mb-1">
-                {data.cardTitle}
-              </h3>
-              <p className="text-[11px] uppercase tracking-[0.25em] text-[#dfb76c] text-center font-medium mb-6">
-                {data.cardTagline}
+            <div className="text-center lg:pt-[1.25rem]">
+              <Image src={data.lotusImage.src} alt="" width={data.lotusImage.width} height={data.lotusImage.height} sizes="165px" className="mx-auto w-[7rem] lg:w-[10.31rem]" />
+              <p className="mt-1 font-heading text-[2.4rem] font-bold leading-none tracking-[-0.01em] lg:-mt-[0.2rem] lg:text-[3.83rem]">{data.cardTitle}</p>
+              <p className="mt-3 flex items-center justify-center gap-3 font-heading text-[0.95rem] uppercase leading-none tracking-[0.3em] lg:mt-[1rem] lg:gap-[0.7rem] lg:text-[1.72rem] lg:tracking-[0.23em]">
+                <span aria-hidden="true" className="h-[0.125rem] w-8 bg-[var(--color-gold-bright)] lg:h-[0.19rem] lg:w-[3.56rem]" />
+                <span className="-mr-[0.3em]">{data.cardTagline}</span>
+                <span aria-hidden="true" className="h-[0.125rem] w-8 bg-[var(--color-gold-bright)] lg:h-[0.19rem] lg:w-[3.56rem]" />
               </p>
-
-              <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#dfb76c] to-transparent mx-auto mb-8" />
-
-              {/* Contact Info List */}
-              <div className="space-y-6 text-sm text-[#d1dbee]">
-                {company.contactItems.map((item) => (
-                  <div key={item.id} className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-full bg-[#0d223f] border border-[#dfb76c]/50 flex items-center justify-center text-[#dfb76c] flex-shrink-0 mt-0.5">
-                      <Icon name={item.icon} className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-[#dfb76c] uppercase tracking-wider font-semibold">
-                        {item.title}
-                      </p>
-                      <div className="text-sm mt-0.5 leading-relaxed">
-                        {item.lines.map((line, idx) => (
-                          <p key={idx}>{line}</p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Social Links at Bottom */}
-            <div className="pt-8 mt-8 border-t border-white/10 flex justify-center items-center gap-4">
-              {company.socials.map((social) => (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  aria-label={social.label}
-                  className="h-9 w-9 rounded-full border border-[#dfb76c]/60 flex items-center justify-center text-xs text-[#dfb76c] hover:bg-[#dfb76c] hover:text-[#07162c] transition-all duration-300"
-                >
-                  <Icon name={social.icon} className="w-4 h-4" />
-                </a>
+            <ul className="mt-8 grid lg:ml-[6.19rem] lg:mt-[2.15rem] lg:w-[35rem]">
+              {company.contactItems.map((item, index) => {
+                const external = item.url.startsWith("http");
+                return (
+                  <li key={item.id} className={index > 0 ? "relative pt-4 before:absolute before:left-[4.4rem] before:right-0 before:top-0 before:h-px before:bg-[var(--color-white-40)] lg:pt-[0.65rem] lg:before:left-[7.94rem] lg:before:right-0 lg:before:h-[0.125rem]" : ""}>
+                    <a
+                      href={item.url}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      className="group flex items-center gap-4 pb-4 lg:gap-[2.75rem] lg:pb-[1.2rem]"
+                    >
+                      <span className="grid size-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[var(--color-gold-light)] to-[var(--color-gold-dark)] transition-transform duration-300 group-hover:scale-105 lg:size-[5.25rem]">
+                        <Icon name={item.icon} className="size-6 lg:size-[2.4rem]" />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block font-heading text-[1.3rem] font-bold leading-tight text-[var(--color-gold-bright)] lg:text-[2.25rem] lg:leading-[2.6rem]">{item.title}</span>
+                        <span className="block break-words font-ui text-[1.05rem] leading-[1.4] group-hover:underline group-hover:underline-offset-4 lg:text-[1.9rem] lg:leading-[2.2rem]">
+                          {item.lines.map((line) => (
+                            <span key={line} className="block">
+                              {line}
+                            </span>
+                          ))}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <ul aria-label={data.socialLabel} className="mt-6 flex justify-center gap-4 lg:mt-[0.75rem] lg:gap-[2rem]">
+              {data.socialLinks.map((social) => (
+                <li key={social.id}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="grid size-12 place-items-center rounded-full border-[0.14rem] border-[var(--color-gold-bright)] text-[var(--color-gold-bright)] transition-colors duration-300 hover:bg-[var(--color-gold-bright)] hover:text-[var(--color-navy-deep)] lg:size-[4.38rem] lg:border-[0.16rem]"
+                  >
+                    <Icon name={social.icon} className="size-5 lg:size-[2rem]" />
+                  </a>
+                </li>
               ))}
-            </div>
-
+            </ul>
           </div>
 
-          {/* Right Card: Message Form */}
-          <div className="lg:col-span-7" data-reveal data-reveal-delay="150">
-            <ContactForm data={form} serviceOptions={serviceOptions} />
+          {/* message form */}
+          <div
+            data-reveal
+            className="rounded-[2rem] border-[0.16rem] border-[var(--color-gold-border)] bg-[var(--color-white)] px-5 pb-7 pt-6 shadow-[0_1rem_2rem_-1.2rem_var(--color-shadow)] sm:px-8 lg:absolute lg:left-[58.94rem] lg:top-[24.44rem] lg:h-[51.81rem] lg:w-[52.06rem] lg:rounded-[2.9rem] lg:px-[2.25rem] lg:pb-0 lg:pt-[2rem]"
+          >
+            <h3 className="font-heading text-[2rem] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-black)] lg:ml-[0.6rem] lg:text-[3.75rem] lg:leading-[4rem]">{data.formTitle}</h3>
+            <ContactForm data={form} eventOptions={eventOptions} />
           </div>
-
         </div>
-
       </div>
     </section>
   );

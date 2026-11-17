@@ -1,124 +1,131 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { CompanyData, FooterData } from "@/types/templates.types";
 import { Icon } from "@/components/ui/Icon";
+import { fill } from "@/components/ui/text";
 
-export const Footer = ({
-  data,
-  company,
-  links,
-}: {
-  data: FooterData;
-  company: CompanyData;
-  links?: { id: string; label: string; url: string }[];
-}) => {
+/** Fills `{year}` in the copyright line; cached so the footer can still be prerendered. */
+async function currentYear() {
+  "use cache";
+  return new Date().getFullYear();
+}
+
+const heading = "font-heading text-[2rem] leading-none text-[var(--color-white)] lg:text-[3.1rem]";
+const underline = "mt-3 block h-[0.3rem] w-[4.8rem] rounded-full bg-[var(--color-gold-bright)] lg:mt-[1.2rem] lg:h-[0.44rem]";
+const divider = "hidden w-[0.19rem] shrink-0 bg-[var(--color-gold)] lg:block";
+
+// Wedding quote with the heart flourish; links; contact details; then the copyright line with the social links.
+export const Footer = async ({ data, company }: { data?: FooterData; company: CompanyData }) => {
+  if (!data) return null;
+  // the footer lists the company contact details (the same ones as the contact section), in its own order
+  const contactItems = data.contactIds.flatMap((id) => company.contactItems.filter((item) => item.id === id));
+  const copyright = fill(data.copyrightText, { year: await currentYear() });
+
   return (
-    <footer className="bg-[#07162c] text-[#d4dfed] relative overflow-hidden border-t-2 border-[#dfb76c]/40">
-      
-      {/* Top Main Footer Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
-          
-          {/* Left Column: Loving Wedding Message & Logo */}
-          <div className="md:col-span-5 space-y-6">
-            <div className="relative h-14 w-48">
-              <Image
-                src={company.logo}
-                alt={company.logoAlt}
-                fill
-                sizes="192px"
-                className="object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(223,183,108,0.4)]"
-              />
-            </div>
-
-            <p className="font-serif text-lg sm:text-xl text-[#f3eedf] italic leading-relaxed max-w-md">
-              “We can’t wait to see all of our beloved friends and relatives at our wedding. Your presence will make our day{" "}
-              <span className="gold-text-gradient font-normal not-italic font-serif font-bold">
-                {data.quoteHighlight}
-              </span>”
+    <footer className="relative bg-[var(--color-navy-deep)] text-[var(--color-white)] lg:h-[46.56rem]">
+      <div className="px-4 sm:px-6 lg:px-0">
+        <div className="grid gap-10 pb-10 pt-12 sm:grid-cols-2 lg:flex lg:h-[36rem] lg:gap-0 lg:p-0">
+          {/* quote and heart */}
+          <div className="sm:col-span-2 lg:ml-[9.56rem] lg:mt-[7.6rem] lg:w-[54.5rem]">
+            <p className="max-w-[54.5rem] font-heading text-[1.75rem] leading-[1.25] lg:text-[3.82rem] lg:leading-[4.53rem]">
+              {data.quoteText} <em className="font-semibold text-[var(--color-gold-bright)]">{data.quoteAccent}</em>
             </p>
-
-            <p className="text-xs text-[#8f9eb3] leading-relaxed max-w-sm">
-              {data.description}
-            </p>
+            <Image
+              src={data.heartImage.src}
+              alt=""
+              width={data.heartImage.width}
+              height={data.heartImage.height}
+              sizes="363px"
+              className="mt-4 w-[14rem] lg:ml-[13.94rem] lg:mt-[1.5rem] lg:w-[22.69rem]"
+            />
           </div>
 
-          {/* Center Column: Quick Links */}
-          <div className="md:col-span-3 sm:pl-4">
-            <h4 className="font-serif text-base font-semibold text-white uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="text-[#dfb76c]">✦</span> {data.quickLinksTitle}
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              {(links || data.quickLinks).map((item) => (
-                <li key={item.id}>
-                  <Link
-                    href={item.url}
-                    className="hover:text-[#dfb76c] transition-colors flex items-center gap-1.5 group"
+          <span aria-hidden="true" className={`${divider} lg:ml-[2.38rem] lg:mt-[8.25rem] lg:h-[22.44rem]`} />
+
+          {/* links */}
+          <nav aria-label={data.linksTitle} className="lg:ml-[4rem] lg:mt-[6.95rem] lg:w-[15.19rem]">
+            <h2 className={heading}>{data.linksTitle}</h2>
+            <span aria-hidden="true" className={underline} />
+            <ul className="mt-5 grid gap-2 lg:mt-[1.4rem] lg:gap-0">
+              {data.links.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={link.url}
+                    className="group inline-flex items-center gap-[1.4rem] font-ui text-[1.1rem] text-[var(--color-white)] transition-colors hover:text-[var(--color-gold-bright)] lg:h-[2.37rem] lg:gap-[1.6rem] lg:pl-[0.5rem] lg:text-[1.6rem]"
                   >
-                    <span className="text-[#dfb76c] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
-                    <span>{item.label}</span>
-                  </Link>
+                    <Icon name="LuChevronRight" className="size-[1.1rem] text-[var(--color-gold-bright)] transition-transform group-hover:translate-x-0.5 lg:size-[1.35rem]" strokeWidth={3} />
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Right Column: Contact Details */}
-          <div className="md:col-span-4 space-y-4">
-            <h4 className="font-serif text-base font-semibold text-white uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="text-[#dfb76c]">✦</span> {data.contactsTitle}
-            </h4>
+          <span aria-hidden="true" className={`${divider} lg:mt-[8.25rem] lg:h-[22.44rem]`} />
 
-            <div className="space-y-3.5 text-xs sm:text-sm">
-              {company.contactItems.map((item) => (
-                <div key={item.id} className="flex items-start gap-3">
-                  <span className="text-[#dfb76c] mt-0.5">
-                    <Icon name={item.icon} className="w-4 h-4" />
-                  </span>
-                  <div className="leading-relaxed">
-                    {item.lines.map((line, idx) => (
-                      <p key={idx}>{line}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Social Icons */}
-            <div className="pt-4 flex items-center gap-3">
-              {company.socials.map((social) => (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  aria-label={social.label}
-                  className="h-8 w-8 rounded-full border border-[#dfb76c]/40 text-[#dfb76c] flex items-center justify-center hover:bg-[#dfb76c] hover:text-[#07162c] transition-all"
-                >
-                  <Icon name={social.icon} className="w-3.5 h-3.5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-[#dfb76c]/20 bg-[#040e1c] py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8292a8]">
-          <p>{data.copyright}</p>
-          <div className="flex items-center gap-6">
-            {data.legalLinks.map((item, idx) => (
-              <span key={item.id} className="flex items-center gap-6">
-                <Link href={item.url} className="hover:text-[#dfb76c] transition-colors">
-                  {item.label}
-                </Link>
-                {idx < data.legalLinks.length - 1 && <span>•</span>}
-              </span>
-            ))}
+          {/* contact details */}
+          <div className="lg:ml-[3rem] lg:mt-[6.3rem] lg:w-[26rem]">
+            <h2 className={heading}>{data.contactsTitle}</h2>
+            <span aria-hidden="true" className={underline} />
+            <ul className="mt-5 grid gap-4 lg:mt-[1.25rem] lg:gap-[0.75rem]">
+              {contactItems.map((item) => {
+                const external = item.url.startsWith("http");
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={item.url}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      aria-label={`${item.title}: ${item.lines.join(" ")}`}
+                      className="group flex items-center gap-4 font-ui lg:gap-[1.6rem]"
+                    >
+                      <span className="grid size-12 shrink-0 place-items-center rounded-full border-[0.14rem] border-[var(--color-gold-bright)] text-[var(--color-gold-bright)] transition-colors duration-300 group-hover:bg-[var(--color-gold-bright)] group-hover:text-[var(--color-navy-deep)] lg:size-[3.69rem] lg:border-[0.16rem]">
+                        <Icon name={item.footerIcon ?? item.icon} className="size-6 lg:size-[1.85rem]" strokeWidth={1.8} />
+                      </span>
+                      <span className="min-w-0 break-words">
+                        <span className="block text-[1.05rem] font-semibold leading-tight text-[var(--color-gold-bright)] lg:text-[1.5rem] lg:leading-[1.75rem]">{item.title}</span>
+                        {item.lines.map((line) => (
+                          <span key={line} className="block text-[1rem] leading-snug text-[var(--color-white)] lg:whitespace-nowrap lg:text-[1.5rem] lg:leading-[1.75rem]">
+                            {line}
+                          </span>
+                        ))}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
-      </div>
 
+        <div className="flex flex-col items-center gap-5 border-t-[0.25rem] border-[var(--color-gold-bright)] lg:border-t-[0.4rem] py-6 sm:flex-row sm:justify-between lg:ml-[6.75rem] lg:mr-[6.44rem] lg:h-[10.56rem] lg:items-start lg:py-0 lg:pt-[1.75rem]">
+          <p className="text-center font-sans text-[1rem] text-[var(--color-white)] sm:text-left lg:mt-[0.62rem] lg:text-[1.76rem]">{copyright}</p>
+          <div className="flex items-center gap-4 lg:gap-0">
+            <ul aria-label={data.socialLabel} className="flex gap-3 lg:gap-[1.6rem]">
+              {data.socialLinks.map((social) => (
+                <li key={social.id}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="grid size-11 place-items-center rounded-full border-[0.14rem] border-[var(--color-gold-bright)] text-[var(--color-white)] transition-colors duration-300 hover:bg-[var(--color-gold-bright)] hover:text-[var(--color-navy-deep)] lg:size-[3.5rem] lg:border-[0.14rem]"
+                  >
+                    <Icon name={social.icon} className="size-5 lg:size-[1.6rem]" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <span aria-hidden="true" className="h-10 w-px bg-[var(--color-white-85)] lg:ml-[2rem] lg:h-[3.25rem] lg:w-[0.19rem]" />
+            <a
+              href="#home"
+              aria-label={data.backToTopLabel}
+              className="grid size-11 place-items-center rounded-full bg-[var(--color-gold-bright)] text-[var(--color-white)] transition-transform duration-300 hover:-translate-y-1 lg:ml-[2.13rem] lg:size-[3.5rem]"
+            >
+              <Icon name="LuArrowUp" className="size-6 lg:size-[2rem]" strokeWidth={2.8} />
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };

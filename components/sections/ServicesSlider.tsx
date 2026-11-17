@@ -47,7 +47,7 @@ export const ServicesSlider = ({ data }: { data: ServicesData }) => {
             <Image src={data.leafLeft.src} alt="" width={data.leafLeft.width} height={data.leafLeft.height} sizes="101px" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] lg:w-[6.3rem]" />
             <Image src={data.leafRight.src} alt="" width={data.leafRight.width} height={data.leafRight.height} sizes="121px" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] lg:w-[7.56rem]" />
             <div className="relative flex flex-1 flex-col items-center px-6 pb-10 pt-1 text-center lg:pb-0 lg:pt-[0.55rem]">
-              <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-[18rem] lg:text-[2.9rem] lg:leading-[2.85rem]">
+              <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-[25rem] lg:text-[2.9rem] lg:leading-[2.85rem]">
                 {service.title}
               </h3>
               <span aria-hidden="true" className="mt-4 flex items-center gap-[0.85rem] text-[var(--color-gold)] lg:mt-[1.05rem]">

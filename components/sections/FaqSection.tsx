@@ -1,109 +1,39 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import type { FaqData } from "@/types/templates.types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
+/** Centred heading; the mandap photo in a gold-outlined arch on the left and the questions on the right */
 export const FaqSection = ({ data }: { data?: FaqData }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   if (!data) return null;
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section id={data.id} className="py-20 md:py-28 bg-[#fdfbf7] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div data-reveal>
-          <SectionHeading
-            label={data.label}
-            titlePart1={data.titlePart1}
-            titleHighlight={data.titleHighlight}
-            description={data.description}
-          />
-        </div>
+    <section id={data.id} className="relative scroll-mt-[4.5rem] bg-[var(--color-bg-soft)] lg:h-[76.88rem] lg:scroll-mt-[6.25rem]">
+      <div className="px-4 py-14 sm:px-6 sm:py-16 lg:px-0 lg:pb-0 lg:pt-[5.4rem]">
+        <SectionHeading
+          label={data.label}
+          titleTop={data.titleTop}
+          titleAccent={data.titleAccent}
+          description={data.description}
+          labelTextClass="text-[var(--color-text-black)]"
+          labelSizeClass="text-[1.1rem] tracking-[0.35em] lg:text-[3.2rem] lg:tracking-[0.23em]"
+          labelLineClass="w-12 lg:w-[9.69rem]"
+          labelGapClass="gap-4 lg:gap-[2.75rem]"
+          titleClassName="!font-bold lg:mt-[1.4rem] lg:text-[5.56rem] lg:leading-[5.35rem]"
+          descriptionClass="lg:!mt-[0.3rem] lg:!text-[2.09rem] text-[var(--color-text-dark)]"
+        />
 
-        {/* 2-Column Grid: Arched Photo Left & Accordion Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Left Column: Arched Ceremony Aisle Image */}
-          <div className="lg:col-span-5 flex justify-center" data-reveal>
-            <div className="relative w-full max-w-[420px]">
-              <div className="p-2 rounded-t-[140px] md:rounded-t-[180px] rounded-b-3xl border-2 border-[#dfb76c]/70 bg-white shadow-[0_15px_40px_rgba(184,134,45,0.12)]">
-                <div className="relative h-[440px] sm:h-[500px] md:h-[540px] w-full rounded-t-[132px] md:rounded-t-[172px] rounded-b-2xl overflow-hidden">
-                  <Image
-                    src={data.sideImage}
-                    alt={data.sideImageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 420px"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute bottom-4 left-4 right-4 text-center bg-white/90 backdrop-blur-md rounded-xl py-2 px-3 border border-[#dfb76c]/60">
-                    <p className="text-xs font-serif italic text-[#0c1a2f]">
-                      {data.sideBadgeText}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div className="mt-10 grid gap-10 lg:mt-0 lg:block">
+          <div data-reveal className="relative mx-auto aspect-[546/819] w-full max-w-[24rem] lg:absolute lg:left-[4.25rem] lg:top-[22.69rem] lg:w-[34.13rem] lg:max-w-none">
+            <span aria-hidden="true" className="absolute inset-0 rounded-b-[13%_8.5%] rounded-t-[50%_33.5%] border-[0.2rem] border-[var(--color-gold)] lg:border-[0.22rem]" />
+            <div className="absolute inset-x-[2.56%] inset-y-[1.7%] overflow-hidden rounded-b-[12%_8%] rounded-t-[50%_33%]">
+              <Image src={data.image} alt={data.imageAlt} fill quality={90} sizes="(min-width: 1024px) 520px, (min-width: 640px) 384px, 92vw" className="object-cover" />
             </div>
           </div>
-
-          {/* Right Column: Interactive Accordion */}
-          <div className="lg:col-span-7 space-y-3.5" data-reveal data-reveal-delay="150">
-            {data.items.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div
-                  key={faq.id}
-                  className={`rounded-2xl transition-all duration-300 border ${
-                    isOpen
-                      ? "bg-[#07162c] border-[#dfb76c] text-white shadow-lg"
-                      : "bg-white border-[#e8dfcf] text-[#0c1a2f] hover:border-[#dfb76c]"
-                  }`}
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    aria-expanded={isOpen}
-                    className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 focus:outline-none"
-                  >
-                    <span
-                      className={`font-serif text-base sm:text-lg font-medium tracking-tight ${
-                        isOpen ? "text-white" : "text-[#0c1a2f]"
-                      }`}
-                    >
-                      {faq.question}
-                    </span>
-
-                    <span
-                      className={`flex-shrink-0 h-8 w-8 rounded-full border flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                        isOpen
-                          ? "border-[#dfb76c] bg-[#b8862d] text-white rotate-180"
-                          : "border-[#dfb76c] text-[#b8862d] bg-[#fdfbf7]"
-                      }`}
-                    >
-                      {isOpen ? "−" : "+"}
-                    </span>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#d4dfed] leading-relaxed border-t border-white/10 pt-3">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="lg:absolute lg:left-[40.06rem] lg:top-[24.75rem] lg:w-[75.75rem]">
+            <FaqAccordion items={data.items} />
           </div>
-
         </div>
-
       </div>
     </section>
   );
