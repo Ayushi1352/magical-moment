@@ -1,0 +1,428 @@
+{
+  "common": {
+    "theme": {
+      "fonts": {
+        "primary": "var(--font-dm-sans), Arial, sans-serif",
+        "heading": "var(--font-source-serif), Georgia, 'Times New Roman', serif",
+        "ui": "var(--font-source-sans), Arial, sans-serif"
+      }
+    },
+    "metadata": {
+      "title": "Magical Moments | Wedding & Event Planner",
+      "description": "Magical Moments turns your vision into unforgettable celebrations. Creative planning, elegant design and seamless execution for weddings, engagements, mehendi, sangeet and every special occasion.",
+      "icon": "/images/favicon.png",
+      "lang": "en"
+    },
+    "company": {
+      "name": "Magical Moments",
+      "tagline": "Wedding & Event Planner",
+      "logo": "/images/logo.webp",
+      "logoAlt": "Magical Moments — Wedding & Event Planner",
+      "logoWidth": 287,
+      "logoHeight": 108,
+      "contactItems": [
+        {
+          "id": "location",
+          "icon": "FaMapMarkerAlt",
+          "footerIcon": "LuMapPin",
+          "title": "Our Location",
+          "lines": ["A-102, Sector 62, Noida,", "Uttar Pradesh – 201309, India"],
+          "url": "https://www.google.com/maps/search/?api=1&query=A-102+Sector+62+Noida+Uttar+Pradesh+201309+India"
+        },
+        {
+          "id": "phone",
+          "icon": "FaPhoneAlt",
+          "footerIcon": "LuPhone",
+          "title": "Call Us",
+          "lines": ["+91 98765 43210"],
+          "url": "tel:+919876543210"
+        },
+        {
+          "id": "email",
+          "icon": "FaEnvelope",
+          "footerIcon": "FaEnvelopeOpen",
+          "title": "Email Us",
+          "lines": ["info@magicalmoments.in"],
+          "url": "mailto:info@magicalmoments.in"
+        },
+        {
+          "id": "website",
+          "icon": "TbWorld",
+          "footerIcon": "TbWorld",
+          "title": "Visit Our Website",
+          "lines": ["www.magicalmoments.in"],
+          "url": "https://www.magicalmoments.in"
+        }
+      ]
+    },
+    "Footer": {
+      "quoteText": "We can’t wait to see all of our beloved friends and relatives at our wedding. Your presence will make our day",
+      "quoteAccent": "truly special!",
+      "heartImage": { "src": "/images/footer-heart.webp", "width": 363, "height": 57 },
+      "linksTitle": "Links",
+      "links": [
+        { "id": "home", "label": "Home", "url": "#home" },
+        { "id": "about-us", "label": "About Us", "url": "#about" },
+        { "id": "our-services", "label": "Our Services", "url": "#services" },
+        { "id": "gallery", "label": "Gallery", "url": "#gallery" },
+        { "id": "testimonials", "label": "Testimonials", "url": "#testimonials" },
+        { "id": "faqs", "label": "FAQs", "url": "#faq" },
+        { "id": "contact-us", "label": "Contact Us", "url": "#contact" }
+      ],
+      "contactsTitle": "Contacts",
+      "contactIds": ["location", "phone", "email", "website"],
+      "socialLabel": "Follow Magical Moments",
+      "socialLinks": [
+        { "id": "facebook", "icon": "FaFacebookF", "label": "Facebook", "url": "https://www.facebook.com/" },
+        { "id": "twitter", "icon": "FaTwitter", "label": "Twitter", "url": "https://twitter.com/" },
+        { "id": "instagram", "icon": "FaInstagram", "label": "Instagram", "url": "https://www.instagram.com/" }
+      ],
+      "copyrightText": "Copyright © {year} | Magical Moments | All Rights Reserved",
+      "backToTopLabel": "Back to top"
+    }
+  },
+  "categories": {
+    "Wedding": {
+      "sections": {
+        "Header": {
+          "variants": {
+            "WeddingHeader1": {
+              "logoUrl": "/",
+              "homeLabel": "Magical Moments — back to top",
+              "navLinks": [
+                { "id": "home", "label": "Home", "url": "#home" },
+                { "id": "about-us", "label": "About Us", "url": "#about" },
+                {
+                  "id": "our-services",
+                  "label": "Our Services",
+                  "url": "#services",
+                  "children": [
+                    { "id": "wedding-planning", "label": "Wedding Planning", "url": "#services" },
+                    { "id": "engagement-ceremonies", "label": "Engagement Ceremonies", "url": "#services" },
+                    { "id": "mehendi-sangeet", "label": "Mehendi & Sangeet", "url": "#services" },
+                    { "id": "how-it-works", "label": "How It Works", "url": "#process" }
+                  ]
+                },
+                { "id": "gallery", "label": "Gallery", "url": "#gallery" },
+                { "id": "testimonials", "label": "Testimonials", "url": "#testimonials" },
+                { "id": "faqs", "label": "FAQs", "url": "#faq" }
+              ],
+              "buttonText": "Contact Us",
+              "buttonUrl": "#contact",
+              "mainNavLabel": "Main navigation",
+              "mobileNavLabel": "Mobile navigation",
+              "openMenuLabel": "Open menu",
+              "closeMenuLabel": "Close menu",
+              "submenuLabel": "Show {label}"
+            }
+          }
+        },
+        "Hero": {
+          "variants": {
+            "WeddingHero1": {
+              "id": "home",
+              "titleTop": "Creating",
+              "titleAccent": "Unforgettable",
+              "titleBottom": "Experiences",
+              "image": "/images/hero-mandap.webp",
+              "imageAlt": "Outdoor wedding mandap with white drapes, chandeliers, roses and candle-lit tables at dusk",
+              "secondImage": "/images/hero-celebration.webp",
+              "secondImageAlt": "Guests celebrating under purple stage lights and falling confetti"
+            }
+          }
+        },
+        "About": {
+          "variants": {
+            "WeddingAbout1": {
+              "id": "about",
+              "label": "About Us",
+              "titleTop": "Telling Your Story",
+              "titleAccentLead": "Through",
+              "titleAccent": "Magical Moments",
+              "photos": [
+                { "id": "bouquet", "image": "/images/about-bouquet.webp", "imageAlt": "Bride holding a bouquet of white and pink roses" },
+                { "id": "couple", "image": "/images/about-couple.webp", "imageAlt": "Bride and groom touching foreheads at sunset beside a rose arch" },
+                { "id": "mandap", "image": "/images/about-mandap.webp", "imageAlt": "Floral wedding arch with white drapes and an aisle of gold chairs" }
+              ],
+              "brand": "Magical Moments",
+              "descriptionLines": [
+                "At {brand}, we turn your vision into unforgettable celebrations.",
+                "With creative planning, elegant design and seamless execution, we craft weddings and events",
+                "that are as unique and special as your love story."
+              ]
+            }
+          }
+        },
+        "Services": {
+          "variants": {
+            "WeddingServices1": {
+              "id": "services",
+              "label": "Our Services",
+              "titleTop": "Create Unforgettable",
+              "titleAccent": "Celebrations",
+              "description": "From intimate gatherings to grand celebrations, Magical Moments offers end-to-end planning and execution for every special occasion.",
+              "leafLeft": { "src": "/images/service-leaf-left.webp", "width": 101, "height": 118 },
+              "leafRight": { "src": "/images/service-leaf-right.webp", "width": 121, "height": 118 },
+              "previousLabel": "Previous service",
+              "nextLabel": "Next service",
+              "showLabel": "Show {title}",
+              "services": [
+                {
+                  "id": "wedding-planning",
+                  "title": "Wedding Planning",
+                  "text": "Complete planning and execution for your dream wedding.",
+                  "image": "/images/service-wedding.webp",
+                  "imageAlt": "Wedding aisle under a floral arch with white drapes"
+                },
+                {
+                  "id": "engagement-ceremonies",
+                  "title": "Engagement Ceremonies",
+                  "text": "Elegant and personalized engagement setups and celebrations.",
+                  "image": "/images/service-engagement.webp",
+                  "imageAlt": "Diamond ring in a red velvet box between pink roses"
+                },
+                {
+                  "id": "mehendi-sangeet",
+                  "title": "Mehendi & Sangeet",
+                  "text": "Vibrant, fun-filled and themed pre-wedding celebrations.",
+                  "image": "/images/service-mehendi.webp",
+                  "imageAlt": "Mehendi stage with yellow drapes, marigolds and colourful cushions"
+                }
+              ]
+            }
+          }
+        },
+        "Process": {
+          "variants": {
+            "WeddingProcess1": {
+              "id": "process",
+              "label": "How It Works",
+              "titleTop": "From Planning",
+              "titleAccent": "to Celebration",
+              "description": "A simple, well-structured process to bring your dream event to life with Magical Moments.",
+              "steps": [
+                {
+                  "id": "consultation",
+                  "number": "(01)",
+                  "title": "Consultation",
+                  "text": "We understand your vision, ideas and event requirements.",
+                  "image": "/images/process-consultation.webp",
+                  "imageAlt": "Hands holding wedding decor photos over a table of mood-board prints"
+                },
+                {
+                  "id": "planning",
+                  "number": "(02)",
+                  "title": "Planning",
+                  "text": "We design, plan and coordinate every detail with care and creativity.",
+                  "image": "/images/process-planning.webp",
+                  "imageAlt": "Candle-lit reception table with white roses, glasses and gold cutlery"
+                },
+                {
+                  "id": "execution",
+                  "number": "(03)",
+                  "title": "Execution",
+                  "text": "We bring everything together seamlessly and make your celebration truly magical.",
+                  "image": "/images/process-execution.webp",
+                  "imageAlt": "Event planner arranging a floral centrepiece in a decorated hall"
+                }
+              ]
+            }
+          }
+        },
+        "Gallery": {
+          "variants": {
+            "WeddingGallery1": {
+              "id": "gallery",
+              "label": "Our Gallery",
+              "titleTop": "Snapshots of",
+              "titleAccent": "Magical Moments",
+              "description": "A glimpse into the beautiful celebrations we’ve created.",
+              "openLabel": "Open photo: {alt}",
+              "closeLabel": "Close photo",
+              "previousLabel": "Previous photo",
+              "nextLabel": "Next photo",
+              "items": [
+                { "id": "rings", "image": "/images/gallery-rings.webp", "imageAlt": "Gold wedding rings on lace beside a white rose" },
+                { "id": "mandap", "image": "/images/gallery-mandap.webp", "imageAlt": "Floral mandap with white drapes and chandeliers" },
+                { "id": "table-setting", "image": "/images/gallery-table-setting.webp", "imageAlt": "Gold charger plate with a folded napkin and rosemary" },
+                { "id": "string-lights", "image": "/images/gallery-string-lights.webp", "imageAlt": "Garden reception under string lights at night" },
+                { "id": "cake", "image": "/images/gallery-cake.webp", "imageAlt": "Three-tier wedding cake with gold leaf and roses" },
+                { "id": "couple", "image": "/images/gallery-couple.webp", "imageAlt": "Indian bride and groom touching foreheads" },
+                { "id": "bouquet", "image": "/images/gallery-bouquet.webp", "imageAlt": "Bridal bouquet of pink and white roses tied with a ribbon" },
+                { "id": "ring-box", "image": "/images/gallery-ring-box.webp", "imageAlt": "Engagement ring in a red velvet box" },
+                { "id": "floral-arch", "image": "/images/gallery-floral-arch.webp", "imageAlt": "Round floral arch at the end of a wedding aisle" },
+                { "id": "reception-table", "image": "/images/gallery-reception-table.webp", "imageAlt": "Long reception table with roses and tall candles" },
+                { "id": "stage", "image": "/images/gallery-stage.webp", "imageAlt": "Wedding stage with pink drapes and a cream sofa" },
+                { "id": "champagne", "image": "/images/gallery-champagne.webp", "imageAlt": "Two glasses of champagne in warm light" },
+                { "id": "cupcakes", "image": "/images/gallery-cupcakes.webp", "imageAlt": "Cupcakes with gold sprinkles on a cake stand" },
+                { "id": "lanterns", "image": "/images/gallery-lanterns.webp", "imageAlt": "Glowing gold lanterns hanging among leaves" }
+              ]
+            }
+          }
+        },
+        "Testimonials": {
+          "variants": {
+            "WeddingTestimonials1": {
+              "id": "testimonials",
+              "label": "Testimonials",
+              "titleTop": "Love Stories",
+              "titleAccentLead": "from Our",
+              "titleAccent": "Happy Clients",
+              "image": "/images/testimonial-couple.webp",
+              "imageAlt": "Smiling bride and groom outdoors, the bride holding a rose bouquet",
+              "secondImage": "/images/testimonial-mandap.webp",
+              "secondImageAlt": "Floral mandap with white drapes and two gold chairs",
+              "ratingLabel": "{stars} out of 5 stars",
+              "previousLabel": "Previous testimonial",
+              "nextLabel": "Next testimonial",
+              "showLabel": "Show testimonial from {name}",
+              "startIndex": 1,
+              "items": [
+                {
+                  "id": "ananya-verma",
+                  "name": "Ananya Verma",
+                  "role": "Bride – Jaipur, India",
+                  "quote": "From the mehendi to the reception, every detail was handled with so much love. Our families could simply enjoy each moment while the team took care of everything.",
+                  "image": "/images/client-ananya.webp",
+                  "stars": 5
+                },
+                {
+                  "id": "priya-sharma",
+                  "name": "Priya Sharma",
+                  "role": "Bride – Delhi, India",
+                  "quote": "Magical Moments made our wedding truly unforgettable. From planning to execution, everything was seamless, elegant and beyond our expectations.",
+                  "image": "/images/client-priya.webp",
+                  "stars": 5
+                },
+                {
+                  "id": "sneha-kapoor",
+                  "name": "Sneha Kapoor",
+                  "role": "Bride – Mumbai, India",
+                  "quote": "Our sunset engagement looked exactly like the picture in our heads. The décor, the flowers and the timing were perfect, and the whole team was a joy to work with.",
+                  "image": "/images/client-sneha.webp",
+                  "stars": 5
+                }
+              ]
+            }
+          }
+        },
+        "Faq": {
+          "variants": {
+            "WeddingFaq1": {
+              "id": "faq",
+              "label": "FAQs",
+              "titleTop": "Frequently Asked",
+              "titleAccent": "Questions",
+              "description": "Find quick answers to common questions about our wedding and event services.",
+              "image": "/images/faq-mandap.webp",
+              "imageAlt": "Lantern-lit aisle leading to a floral mandap with two chairs",
+              "items": [
+                {
+                  "id": "event-types",
+                  "question": "What types of events do you plan?",
+                  "answer": "We plan and manage a wide range of events, including weddings, engagements, receptions, and other special celebrations."
+                },
+                {
+                  "id": "advance-booking",
+                  "question": "How far in advance should I book your services?",
+                  "answer": "We recommend booking 6 to 12 months ahead for weddings and 2 to 3 months ahead for smaller events, so we can reserve the best venues and vendors."
+                },
+                {
+                  "id": "custom-packages",
+                  "question": "Do you provide customized wedding packages?",
+                  "answer": "Yes. Every package is built around your traditions, guest count, style and budget, and you can add or remove services at any time."
+                },
+                {
+                  "id": "indoor-outdoor",
+                  "question": "Can you handle both indoor and outdoor events?",
+                  "answer": "Absolutely. We plan banquet halls, hotels, gardens, beaches and destination venues, with a weather backup plan for every outdoor event."
+                },
+                {
+                  "id": "budget",
+                  "question": "Do you work with a specific budget?",
+                  "answer": "We work with your budget, whatever its size. We share a clear cost breakdown up front and suggest options that give you the most value."
+                },
+                {
+                  "id": "vendors",
+                  "question": "Will you manage vendors and coordination?",
+                  "answer": "Yes. We handle decorators, caterers, photographers, artists and logistics, and our team coordinates everything on the day so you can relax."
+                }
+              ]
+            }
+          }
+        },
+        "Contact": {
+          "variants": {
+            "WeddingContact1": {
+              "id": "contact",
+              "label": "Contact Us",
+              "titleTop": "Get in Touch with",
+              "titleAccent": "Magical Moments",
+              "description": "Have a question or want to plan your special event? We’d love to hear from you.",
+              "lotusImage": { "src": "/images/lotus.webp", "width": 165, "height": 88 },
+              "cardTitle": "Magical Moments",
+              "cardTagline": "Weddings & Events",
+              "socialLabel": "Follow Magical Moments",
+              "socialLinks": [
+                { "id": "instagram", "icon": "FaInstagram", "label": "Instagram", "url": "https://www.instagram.com/" },
+                { "id": "facebook", "icon": "FaFacebookF", "label": "Facebook", "url": "https://www.facebook.com/" },
+                { "id": "youtube", "icon": "FaYoutube", "label": "YouTube", "url": "https://www.youtube.com/" },
+                { "id": "linkedin", "icon": "FaLinkedinIn", "label": "LinkedIn", "url": "https://www.linkedin.com/" }
+              ],
+              "formTitle": "Send Us a Message"
+            }
+          }
+        },
+        "ContactForm": {
+          "variants": {
+            "WeddingContactForm1": {
+              "fields": {
+                "name": "Full Name",
+                "email": "Email Address",
+                "phone": "Phone Number",
+                "date": "Event Date",
+                "eventType": "Event Type",
+                "message": "Your Message"
+              },
+              "icons": {
+                "name": "LuUserRound",
+                "email": "LuMail",
+                "phone": "LuPhone",
+                "date": "LuCalendarDays",
+                "eventType": "LuList",
+                "message": "LuMessageCircleMore"
+              },
+              "button": "Submit Enquiry",
+              "sending": "Sending…",
+              "successTitle": "Thank you, {name}!",
+              "success": "Your enquiry has been received. Our team will get back to you shortly.",
+              "closeLabel": "Close message"
+            }
+          }
+        }
+      },
+      "templateComponents": {
+        "template-1": {
+          "shared": {
+            "Header": "WeddingHeader1",
+            "Footer": "Footer"
+          },
+          "pages": {
+            "home": {
+              "components": [
+                { "key": "Hero", "component": "WeddingHero1" },
+                { "key": "About", "component": "WeddingAbout1" },
+                { "key": "Services", "component": "WeddingServices1" },
+                { "key": "Process", "component": "WeddingProcess1" },
+                { "key": "Gallery", "component": "WeddingGallery1" },
+                { "key": "Testimonials", "component": "WeddingTestimonials1" },
+                { "key": "Faq", "component": "WeddingFaq1" },
+                { "key": "Contact", "component": "WeddingContact1" }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
