@@ -52,7 +52,7 @@ export const ProcessSection = ({ data }: { data?: ProcessData }) => {
               lineClass="w-12 lg:w-[5.7rem]"
               gapClass="gap-3 lg:gap-[1.5rem]"
             />
-            <h2 className={`mt-4 text-[2.6rem] !font-medium !tracking-[-0.037em] sm:text-[3.6rem] lg:mt-[2.3rem] lg:whitespace-nowrap lg:text-[6.05rem] lg:leading-[6rem] ${titleClass}`}>
+            <h2 className={`mt-4 text-[length:min(2.6rem,calc((100vw-2rem)/6.9))] !font-medium !tracking-[-0.037em] sm:text-[3.6rem] lg:mt-[2.3rem] lg:whitespace-nowrap lg:text-[6.05rem] lg:leading-[6rem] ${titleClass}`}>
               <span className="block">{data.titleTop}</span>
               <span className="block text-[var(--color-gold)]">{data.titleAccent}</span>
             </h2>

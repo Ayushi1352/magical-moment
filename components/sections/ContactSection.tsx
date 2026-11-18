@@ -42,7 +42,7 @@ export const ContactSection = ({ data, form, company, eventOptions }: Props) => 
             >
               <div className="text-center lg:pt-[1.25rem]">
                 <Image src={data.lotusImage.src} alt="" width={data.lotusImage.width} height={data.lotusImage.height} sizes="165px" className="mx-auto w-[7rem] lg:w-[10.31rem]" />
-                <p className="mt-1 font-heading text-[2.4rem] font-bold leading-none tracking-[-0.01em] lg:-mt-[0.2rem] lg:translate-x-[0.75rem] lg:text-[3.83rem]">{data.cardTitle}</p>
+                <p className="mt-1 font-heading text-[2.1rem] font-bold leading-none tracking-[-0.01em] sm:text-[2.4rem] lg:-mt-[0.2rem] lg:translate-x-[0.75rem] lg:text-[3.83rem]">{data.cardTitle}</p>
                 <p className="mt-3 flex items-center justify-center gap-2 whitespace-nowrap font-heading text-[0.8rem] uppercase leading-none tracking-[0.2em] sm:gap-3 sm:text-[0.95rem] sm:tracking-[0.3em] lg:mt-[1rem] lg:translate-x-[0.45rem] lg:gap-[0.7rem] lg:text-[1.72rem] lg:tracking-[0.23em]">
                   <span aria-hidden="true" className="h-[0.125rem] w-6 bg-[var(--color-gold-bright)] sm:w-8 lg:h-[0.19rem] lg:w-[3.56rem]" />
                   <span className="-mr-[0.3em]">{data.cardTagline}</span>

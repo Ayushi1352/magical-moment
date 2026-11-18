@@ -75,7 +75,8 @@ export const SectionHeading = ({
 }: HeadingProps) => (
   <div data-reveal className={`flex flex-col items-center text-center ${className}`}>
     <SectionLabel text={label} textClass={labelTextClass} sizeClass={labelSizeClass} lineClass={labelLineClass} gapClass={labelGapClass} />
-    <h2 className={`mt-4 text-[2.25rem] sm:text-[3rem] lg:whitespace-nowrap ${titleClass} ${titleClassName}`}>
+    {/* 2rem on phones, a little smaller on the narrowest ones so a title never takes more than two lines */}
+    <h2 className={`mt-4 text-[length:min(2rem,calc((100vw-2rem)/9.6))] sm:text-[2.6rem] lg:whitespace-nowrap ${titleClass} ${titleClassName}`}>
       {titleTop} <span className={accentClass}>{titleAccent}</span>
     </h2>
     {description && (

@@ -30,7 +30,7 @@ export const AboutSection = ({ data }: { data?: AboutData }) => {
               lineClass="w-14 lg:w-[10.3rem]"
               gapClass="gap-4 lg:gap-[1.6rem]"
             />
-            <h2 className={`mt-4 text-[2.4rem] sm:text-[3.4rem] lg:mt-[1.22rem] lg:whitespace-nowrap lg:text-[6rem] lg:leading-[6.55rem] ${titleClass}`}>
+            <h2 className={`mt-4 text-[length:min(1.85rem,7.6vw)] sm:text-[3rem] lg:mt-[1.22rem] lg:whitespace-nowrap lg:text-[6rem] lg:leading-[6.55rem] ${titleClass}`}>
               <span className="block lg:text-[6.4rem]">{data.titleTop}</span>
               <span className="block">
                 {data.titleAccentLead} <span className={accentClass}>{data.titleAccent}</span>

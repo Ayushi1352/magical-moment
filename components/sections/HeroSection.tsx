@@ -8,7 +8,9 @@ const enter = "transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.
 /*
   From 1024px up every piece sits where the 1920px design has it (1 design pixel = 0.0625rem, measured from the
   top of the page). Below the fixed header it gets the same space as every other section.
-  Phones and tablets stack the title above the two photos.
+  Phones and tablets stack the title above the two photos, in two lines: "Creating Unforgettable" / "Experiences".
+  Its size follows the screen width so that first line always fits (Source Serif's letters get wider as the size
+  goes down, so the divisor has room to spare), never larger than 3.4rem on phones and 5.5rem on tablets.
 */
 export const HeroSection = ({ data }: { data?: HeroData }) => {
   if (!data) return null;
@@ -18,10 +20,10 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
       <DesignFrame height={1012} offset={210}>
         <div className="px-4 sm:px-6 lg:p-0">
           <h1
-            className={`text-center font-heading text-[3.4rem] font-bold leading-[1.12] tracking-[-0.01em] text-[var(--color-navy)] sm:text-[5.5rem] lg:absolute lg:left-[7.9rem] lg:top-[17.53rem] lg:text-left lg:text-[7.57rem] lg:leading-[7.75rem] ${enter}`}
+            className={`text-center font-heading text-[length:min(3.4rem,calc((100vw-2rem)/10.1))] font-bold leading-[1.12] tracking-[-0.01em] text-[var(--color-navy)] sm:text-[length:min(5.5rem,calc((100vw-3rem)/10.4))] lg:absolute lg:left-[7.9rem] lg:top-[17.53rem] lg:text-left lg:text-[7.57rem] lg:leading-[7.75rem] ${enter}`}
           >
-            <span className="block">{data.titleTop}</span>
-            <span className="block font-semibold italic text-[var(--color-gold)] lg:-ml-[0.2rem] lg:text-[7.85rem]">{data.titleAccent}</span>
+            <span className="lg:block">{data.titleTop}</span>{" "}
+            <span className="font-semibold italic text-[var(--color-gold)] lg:-ml-[0.2rem] lg:block lg:text-[7.85rem]">{data.titleAccent}</span>
             <span className="block lg:tracking-[-0.035em]">{data.titleBottom}</span>
           </h1>
 

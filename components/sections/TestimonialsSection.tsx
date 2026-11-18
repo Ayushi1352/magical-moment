@@ -27,8 +27,8 @@ export const TestimonialsSection = ({ data }: { data?: TestimonialsData }) => {
                 gapClass="gap-4 lg:gap-[1.9rem]"
               />
               <h2 className={`mt-5 !font-medium lg:mt-[4.15rem] lg:whitespace-nowrap ${titleClass}`}>
-                <span className="block text-[3rem] leading-[1.05] sm:text-[4rem] lg:text-[6.9rem] lg:leading-[6.8rem]">{data.titleTop}</span>
-                <span className="block text-[2.5rem] leading-[1.1] sm:text-[3.4rem] lg:mt-[0.6rem] lg:text-[5.65rem] lg:leading-[7rem]">
+                <span className="block text-[2.4rem] leading-[1.05] sm:text-[4rem] lg:text-[6.9rem] lg:leading-[6.8rem]">{data.titleTop}</span>
+                <span className="block text-[length:min(1.9rem,calc((100vw-2rem)/10.2))] leading-[1.1] sm:text-[3.4rem] lg:mt-[0.6rem] lg:text-[5.65rem] lg:leading-[7rem]">
                   {data.titleAccentLead} <span className={accentClass}>{data.titleAccent}</span>
                 </span>
               </h2>
