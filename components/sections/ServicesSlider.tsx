@@ -42,31 +42,15 @@ export const ServicesSlider = ({ data }: { data: ServicesData }) => {
           >
             {/* Pure clean photograph with CSS/SVG curved transition */}
             <div className="relative aspect-[534/476] shrink-0 overflow-hidden">
-              <Image src={service.image} alt={service.imageAlt} fill quality={95} sizes="(min-width: 1024px) 534px, (min-width: 640px) 46vw, 92vw" className="object-cover" />
+              <Image src={service.image} alt={service.imageAlt} fill quality={90} sizes="(min-width: 1024px) 534px, (min-width: 640px) 46vw, 92vw" className="object-cover" />
               <svg viewBox="0 0 534 32" fill="var(--color-bg-card)" preserveAspectRatio="none" aria-hidden="true" className="pointer-events-none absolute -bottom-[0.05rem] inset-x-0 h-5 w-full lg:h-[2.2rem]">
                 <path d="M0,0 Q267,32 534,0 L534,32 L0,32 Z" />
               </svg>
             </div>
 
             {/* Circular emblem badge styled with CSS matching design screenshot */}
-            <div aria-hidden="true" className="relative -mt-7 z-10 mx-auto flex size-14 items-center justify-center rounded-full border-[0.16rem] border-[var(--color-gold)] bg-[#0c1424] text-[var(--color-gold)] shadow-md transition-transform duration-300 group-hover:scale-105 lg:-mt-[2.7rem] lg:size-[5.4rem] lg:border-[0.2rem]">
-              {service.id === "wedding-planning" ? (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-6 lg:size-[2.4rem]">
-                  <circle cx="9" cy="12" r="5" />
-                  <circle cx="15" cy="12" r="5" />
-                </svg>
-              ) : service.id === "engagement-ceremonies" ? (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-6 lg:size-[2.4rem]">
-                  <path d="M6 3h12l4 6-10 12L2 9z" />
-                  <path d="M2 9h20" />
-                  <path d="M10 3l-2 6 4 12 4-12-2-6" />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-6 lg:size-[2.4rem]">
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.05-7.05l-2.83 2.83m-8.48 8.48l-2.83 2.83m0-14.14l2.83 2.83m8.48 8.48l2.83 2.83" />
-                </svg>
-              )}
+            <div aria-hidden="true" className="relative -mt-7 z-10 mx-auto flex size-14 items-center justify-center rounded-full border-[0.16rem] border-[var(--color-gold)] bg-[var(--color-navy-badge)] text-[var(--color-gold)] shadow-md transition-transform duration-300 group-hover:scale-105 lg:-mt-[2.7rem] lg:size-[5.4rem] lg:border-[0.2rem]">
+              <Icon name={service.icon} className="size-6 lg:size-[2.4rem]" />
             </div>
 
             <Image src={data.leafLeft.src} alt="" width={data.leafLeft.width} height={data.leafLeft.height} sizes="98px" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] lg:w-[6.13rem]" />

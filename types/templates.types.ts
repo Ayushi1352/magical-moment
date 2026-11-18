@@ -126,6 +126,8 @@ export interface AboutData extends SplitTitle {
 
 export interface ServiceCard {
   id: string;
+  /** emblem in the round badge under the photo (a name from components/ui/Icon.tsx) */
+  icon: string;
   title: string;
   text: string;
   image: string;

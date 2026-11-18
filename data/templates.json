@@ -159,6 +159,7 @@
               "services": [
                 {
                   "id": "wedding-planning",
+                  "icon": "MmRings",
                   "title": "Wedding Planning",
                   "text": "Complete planning and execution for your dream wedding.",
                   "image": "/images/service-wedding.webp",
@@ -166,6 +167,7 @@
                 },
                 {
                   "id": "engagement-ceremonies",
+                  "icon": "MmDiamond",
                   "title": "Engagement Ceremonies",
                   "text": "Elegant and personalized engagement setups and celebrations.",
                   "image": "/images/service-engagement.webp",
@@ -173,6 +175,7 @@
                 },
                 {
                   "id": "mehendi-sangeet",
+                  "icon": "MmSparkle",
                   "title": "Mehendi & Sangeet",
                   "text": "Vibrant, fun-filled and themed pre-wedding celebrations.",
                   "image": "/images/service-mehendi.webp",
