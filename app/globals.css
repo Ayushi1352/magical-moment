@@ -37,6 +37,9 @@
   --color-bg-soft: #fefefe;
   --color-bg-card: #fbfaf7;
   --color-cream: #f9eddf;
+  /* the design's drawn decorations: pale leaves on the service cards, gold lotus and heart line on navy */
+  --color-leaf: #f0dfc0;
+  --color-gold-ornament: #e3a614;
   --color-field-border: #dadada;
   --color-dot: #cdcdce;
   /* Shown on both sides of the page when the screen is wider than 1920px (or the browser is zoomed out). */

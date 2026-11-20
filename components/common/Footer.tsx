@@ -1,6 +1,6 @@
-import Image from "next/image";
 import type { CompanyData, FooterData } from "@/types/templates.types";
 import { Icon } from "@/components/ui/Icon";
+import { HeartFlourish } from "@/components/ui/Ornaments";
 import { fill } from "@/components/ui/text";
 
 /** Fills `{year}` in the copyright line; cached so the footer can still be prerendered. */
@@ -30,14 +30,7 @@ export const Footer = async ({ data, company }: { data?: FooterData; company: Co
             <p className="max-w-[55.6rem] font-heading text-[1.5rem] leading-[1.25] sm:text-[1.75rem] lg:text-[3.82rem] lg:leading-[4.53rem]">
               {data.quoteText} <em className="font-semibold text-[var(--color-gold-bright)]">{data.quoteAccent}</em>
             </p>
-            <Image
-              src={data.heartImage.src}
-              alt=""
-              width={data.heartImage.width}
-              height={data.heartImage.height}
-              sizes="363px"
-              className="mt-4 w-[14rem] lg:ml-[13.94rem] lg:mt-[1.5rem] lg:w-[22.69rem]"
-            />
+            <HeartFlourish className="mt-4 w-[14rem] text-[var(--color-gold-ornament)] lg:ml-[13.94rem] lg:mt-[1.5rem] lg:w-[22.69rem]" />
           </div>
 
           <span aria-hidden="true" className={`${divider} lg:ml-[2.38rem] lg:mt-[8.25rem] lg:h-[22.44rem]`} />

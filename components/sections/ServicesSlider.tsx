@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { ServicesData } from "@/types/templates.types";
 import { Icon } from "@/components/ui/Icon";
+import { LeafSprig } from "@/components/ui/Ornaments";
 import { roundGoldClass } from "@/components/ui/buttonStyles";
 import { fill } from "@/components/ui/text";
 
@@ -53,8 +54,8 @@ export const ServicesSlider = ({ data }: { data: ServicesData }) => {
               <Icon name={service.icon} className="size-6 lg:size-[2.4rem]" />
             </div>
 
-            <Image src={data.leafLeft.src} alt="" width={data.leafLeft.width} height={data.leafLeft.height} sizes="98px" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] lg:w-[6.13rem]" />
-            <Image src={data.leafRight.src} alt="" width={data.leafRight.width} height={data.leafRight.height} sizes="119px" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] lg:w-[7.44rem]" />
+            <LeafSprig side="left" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] text-[var(--color-leaf)] lg:w-[6.13rem]" />
+            <LeafSprig side="right" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] text-[var(--color-leaf)] lg:w-[7.44rem]" />
             <div className="relative flex flex-1 flex-col items-center px-6 pb-10 pt-3 text-center lg:pb-0 lg:pt-[1.35rem]">
               <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-none lg:text-[2.8rem] lg:leading-[2.8rem]">
                 {service.title}

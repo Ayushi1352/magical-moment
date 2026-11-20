@@ -58,7 +58,6 @@
     "Footer": {
       "quoteText": "We can’t wait to see all of our beloved friends and relatives at our wedding. Your presence will make our day",
       "quoteAccent": "truly special!",
-      "heartImage": { "src": "/images/footer-heart.webp", "width": 363, "height": 57 },
       "linksTitle": "Links",
       "links": [
         { "id": "home", "label": "Home", "url": "#home" },
@@ -114,9 +113,9 @@
               "titleTop": "Creating",
               "titleAccent": "Unforgettable",
               "titleBottom": "Experiences",
-              "image": "/images/hero-mandap.webp",
+              "image": "/images/hero-mandap-v2.webp",
               "imageAlt": "Outdoor wedding mandap with white drapes, chandeliers, roses and candle-lit tables at dusk",
-              "secondImage": "/images/hero-celebration.webp",
+              "secondImage": "/images/hero-celebration-v2.webp",
               "secondImageAlt": "Guests celebrating under purple stage lights and falling confetti"
             }
           }
@@ -130,9 +129,9 @@
               "titleAccentLead": "Through",
               "titleAccent": "Magical Moments",
               "photos": [
-                { "id": "bouquet", "image": "/images/about-bouquet.webp", "imageAlt": "Bride holding a bouquet of white and pink roses" },
-                { "id": "couple", "image": "/images/about-couple.webp", "imageAlt": "Bride and groom touching foreheads at sunset beside a rose arch" },
-                { "id": "mandap", "image": "/images/about-mandap.webp", "imageAlt": "Floral wedding arch with white drapes and an aisle of gold chairs" }
+                { "id": "bouquet", "image": "/images/about-bouquet-v2.webp", "imageAlt": "Bride holding a bouquet of white and pink roses" },
+                { "id": "couple", "image": "/images/about-couple-v2.webp", "imageAlt": "Bride and groom touching foreheads at sunset beside a rose arch" },
+                { "id": "mandap", "image": "/images/about-mandap-v2.webp", "imageAlt": "Floral wedding arch with white drapes and an aisle of gold chairs" }
               ],
               "brand": "Magical Moments",
               "descriptionLines": [
@@ -151,8 +150,6 @@
               "titleTop": "Create Unforgettable",
               "titleAccent": "Celebrations",
               "description": "From intimate gatherings to grand celebrations, Magical Moments offers end-to-end planning and execution for every special occasion.",
-              "leafLeft": { "src": "/images/card-leaf-left.webp", "width": 98, "height": 104 },
-              "leafRight": { "src": "/images/card-leaf-right.webp", "width": 119, "height": 104 },
               "previousLabel": "Previous service",
               "nextLabel": "Next service",
               "showLabel": "Show {title}",
@@ -162,7 +159,7 @@
                   "icon": "MmRings",
                   "title": "Wedding Planning",
                   "text": "Complete planning and execution for your dream wedding.",
-                  "image": "/images/service-wedding.webp",
+                  "image": "/images/service-wedding-v2.webp",
                   "imageAlt": "Wedding aisle under a floral arch with white drapes"
                 },
                 {
@@ -170,7 +167,7 @@
                   "icon": "MmDiamond",
                   "title": "Engagement Ceremonies",
                   "text": "Elegant and personalized engagement setups and celebrations.",
-                  "image": "/images/service-engagement.webp",
+                  "image": "/images/service-engagement-v2.webp",
                   "imageAlt": "Diamond ring in a red velvet box between pink roses"
                 },
                 {
@@ -178,7 +175,7 @@
                   "icon": "MmSparkle",
                   "title": "Mehendi & Sangeet",
                   "text": "Vibrant, fun-filled and themed pre-wedding celebrations.",
-                  "image": "/images/service-mehendi.webp",
+                  "image": "/images/service-mehendi-v2.webp",
                   "imageAlt": "Mehendi stage with yellow drapes, marigolds and colourful cushions"
                 }
               ]
@@ -199,7 +196,7 @@
                   "number": "(01)",
                   "title": "Consultation",
                   "text": "We understand your vision, ideas and event requirements.",
-                  "image": "/images/process-consultation.webp",
+                  "image": "/images/process-consultation-v2.webp",
                   "imageAlt": "Hands holding wedding decor photos over a table of mood-board prints"
                 },
                 {
@@ -207,7 +204,7 @@
                   "number": "(02)",
                   "title": "Planning",
                   "text": "We design, plan and coordinate every detail with care and creativity.",
-                  "image": "/images/process-planning.webp",
+                  "image": "/images/process-planning-v2.webp",
                   "imageAlt": "Candle-lit reception table with white roses, glasses and gold cutlery"
                 },
                 {
@@ -215,7 +212,7 @@
                   "number": "(03)",
                   "title": "Execution",
                   "text": "We bring everything together seamlessly and make your celebration truly magical.",
-                  "image": "/images/process-execution.webp",
+                  "image": "/images/process-execution-v2.webp",
                   "imageAlt": "Event planner arranging a floral centrepiece in a decorated hall"
                 }
               ]
@@ -235,20 +232,20 @@
               "previousLabel": "Previous photo",
               "nextLabel": "Next photo",
               "items": [
-                { "id": "rings", "image": "/images/gallery-rings.webp", "imageAlt": "Gold wedding rings on lace beside a white rose" },
-                { "id": "mandap", "image": "/images/gallery-mandap.webp", "imageAlt": "Floral mandap with white drapes and chandeliers" },
-                { "id": "table-setting", "image": "/images/gallery-table-setting.webp", "imageAlt": "Gold charger plate with a folded napkin and rosemary" },
-                { "id": "string-lights", "image": "/images/gallery-string-lights.webp", "imageAlt": "Garden reception under string lights at night" },
-                { "id": "cake", "image": "/images/gallery-cake.webp", "imageAlt": "Three-tier wedding cake with gold leaf and roses" },
-                { "id": "couple", "image": "/images/gallery-couple.webp", "imageAlt": "Indian bride and groom touching foreheads" },
-                { "id": "bouquet", "image": "/images/gallery-bouquet.webp", "imageAlt": "Bridal bouquet of pink and white roses tied with a ribbon" },
-                { "id": "ring-box", "image": "/images/gallery-ring-box.webp", "imageAlt": "Engagement ring in a red velvet box" },
-                { "id": "floral-arch", "image": "/images/gallery-floral-arch.webp", "imageAlt": "Round floral arch at the end of a wedding aisle" },
-                { "id": "reception-table", "image": "/images/gallery-reception-table.webp", "imageAlt": "Long reception table with roses and tall candles" },
-                { "id": "stage", "image": "/images/gallery-stage.webp", "imageAlt": "Wedding stage with pink drapes and a cream sofa" },
-                { "id": "champagne", "image": "/images/gallery-champagne.webp", "imageAlt": "Two glasses of champagne in warm light" },
-                { "id": "cupcakes", "image": "/images/gallery-cupcakes.webp", "imageAlt": "Cupcakes with gold sprinkles on a cake stand" },
-                { "id": "lanterns", "image": "/images/gallery-lanterns.webp", "imageAlt": "Glowing gold lanterns hanging among leaves" }
+                { "id": "rings", "image": "/images/gallery-rings-v2.webp", "imageAlt": "Gold wedding rings on lace beside a white rose" },
+                { "id": "mandap", "image": "/images/gallery-mandap-v2.webp", "imageAlt": "Floral mandap with white drapes and chandeliers" },
+                { "id": "table-setting", "image": "/images/gallery-table-setting-v2.webp", "imageAlt": "Gold charger plate with a folded napkin and rosemary" },
+                { "id": "string-lights", "image": "/images/gallery-string-lights-v2.webp", "imageAlt": "Garden reception under string lights at night" },
+                { "id": "cake", "image": "/images/gallery-cake-v2.webp", "imageAlt": "Three-tier wedding cake with gold leaf and roses" },
+                { "id": "couple", "image": "/images/gallery-couple-v2.webp", "imageAlt": "Indian bride and groom touching foreheads" },
+                { "id": "bouquet", "image": "/images/gallery-bouquet-v2.webp", "imageAlt": "Bridal bouquet of pink and white roses tied with a ribbon" },
+                { "id": "ring-box", "image": "/images/gallery-ring-box-v2.webp", "imageAlt": "Engagement ring in a red velvet box" },
+                { "id": "floral-arch", "image": "/images/gallery-floral-arch-v2.webp", "imageAlt": "Round floral arch at the end of a wedding aisle" },
+                { "id": "reception-table", "image": "/images/gallery-reception-table-v2.webp", "imageAlt": "Long reception table with roses and tall candles" },
+                { "id": "stage", "image": "/images/gallery-stage-v2.webp", "imageAlt": "Wedding stage with pink drapes and a cream sofa" },
+                { "id": "champagne", "image": "/images/gallery-champagne-v2.webp", "imageAlt": "Two glasses of champagne in warm light" },
+                { "id": "cupcakes", "image": "/images/gallery-cupcakes-v2.webp", "imageAlt": "Cupcakes with gold sprinkles on a cake stand" },
+                { "id": "lanterns", "image": "/images/gallery-lanterns-v2.webp", "imageAlt": "Glowing gold lanterns hanging among leaves" }
               ]
             }
           }
@@ -261,9 +258,9 @@
               "titleTop": "Love Stories",
               "titleAccentLead": "from Our",
               "titleAccent": "Happy Clients",
-              "image": "/images/testimonial-couple.webp",
+              "image": "/images/testimonial-couple-v2.webp",
               "imageAlt": "Smiling bride and groom outdoors, the bride holding a rose bouquet",
-              "secondImage": "/images/testimonial-mandap.webp",
+              "secondImage": "/images/testimonial-mandap-v2.webp",
               "secondImageAlt": "Floral mandap with white drapes and two gold chairs",
               "ratingLabel": "{stars} out of 5 stars",
               "previousLabel": "Previous testimonial",
@@ -276,7 +273,7 @@
                   "name": "Ananya Verma",
                   "role": "Bride – Jaipur, India",
                   "quote": "Every detail of our mehendi and reception was handled with love. Our families simply enjoyed each moment while the team took care of the rest.",
-                  "image": "/images/client-ananya.webp",
+                  "image": "/images/client-ananya-v2.webp",
                   "stars": 5
                 },
                 {
@@ -284,7 +281,7 @@
                   "name": "Priya Sharma",
                   "role": "Bride – Delhi, India",
                   "quote": "Magical Moments made our wedding truly unforgettable. From planning to execution, everything was seamless, elegant and beyond our expectations.",
-                  "image": "/images/client-priya.webp",
+                  "image": "/images/client-priya-v2.webp",
                   "stars": 5
                 },
                 {
@@ -292,7 +289,7 @@
                   "name": "Sneha Kapoor",
                   "role": "Bride – Mumbai, India",
                   "quote": "Our sunset engagement looked exactly as we imagined. The décor, flowers and timing were perfect, and the whole team was a joy to work with.",
-                  "image": "/images/client-sneha.webp",
+                  "image": "/images/client-sneha-v2.webp",
                   "stars": 5
                 }
               ]
@@ -307,7 +304,7 @@
               "titleTop": "Frequently Asked",
               "titleAccent": "Questions",
               "description": "Find quick answers to common questions about our wedding and event services.",
-              "image": "/images/faq-mandap.webp",
+              "image": "/images/faq-mandap-v2.webp",
               "imageAlt": "Lantern-lit aisle leading to a floral mandap with two chairs",
               "items": [
                 {
@@ -352,7 +349,6 @@
               "titleTop": "Get in Touch with",
               "titleAccent": "Magical Moments",
               "description": "Have a question or want to plan your special event? We’d love to hear from you.",
-              "lotusImage": { "src": "/images/lotus.webp", "width": 165, "height": 88 },
               "cardTitle": "Magical Moments",
               "cardTagline": "Weddings & Events",
               "socialLabel": "Follow Magical Moments",
@@ -383,28 +379,6 @@
               "successTitle": "Thank you, {name}!",
               "success": "Your enquiry has been received. Our team will get back to you shortly.",
               "closeLabel": "Close message"
-            }
-          }
-        }
-      },
-      "templateComponents": {
-        "template-1": {
-          "shared": {
-            "Header": "WeddingHeader1",
-            "Footer": "Footer"
-          },
-          "pages": {
-            "home": {
-              "components": [
-                { "key": "Hero", "component": "WeddingHero1" },
-                { "key": "About", "component": "WeddingAbout1" },
-                { "key": "Services", "component": "WeddingServices1" },
-                { "key": "Process", "component": "WeddingProcess1" },
-                { "key": "Gallery", "component": "WeddingGallery1" },
-                { "key": "Testimonials", "component": "WeddingTestimonials1" },
-                { "key": "Faq", "component": "WeddingFaq1" },
-                { "key": "Contact", "component": "WeddingContact1" }
-              ]
             }
           }
         }

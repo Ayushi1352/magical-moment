@@ -57,17 +57,9 @@ export interface CompanyData {
   contactItems: ContactItem[];
 }
 
-/** A decoration image with its own pixel size (so the page reserves its space before it loads) */
-export interface DecorImage {
-  src: string;
-  width: number;
-  height: number;
-}
-
 export interface FooterData {
   quoteText: string;
   quoteAccent: string;
-  heartImage: DecorImage;
   linksTitle: string;
   links: LinkItem[];
   contactsTitle: string;
@@ -138,8 +130,6 @@ export interface ServicesData extends SplitTitle {
   id: string;
   label: string;
   description: string;
-  leafLeft: DecorImage;
-  leafRight: DecorImage;
   previousLabel: string;
   nextLabel: string;
   showLabel: string;
@@ -225,7 +215,6 @@ export interface ContactData extends SplitTitle {
   id: string;
   label: string;
   description: string;
-  lotusImage: DecorImage;
   cardTitle: string;
   cardTagline: string;
   socialLabel: string;
@@ -255,11 +244,6 @@ interface Variants<T> {
   variants: Record<string, T>;
 }
 
-export interface TemplateComponent {
-  key: string;
-  component: string;
-}
-
 export interface WeddingTemplateData {
   common: {
     theme: ThemeData;
@@ -280,12 +264,6 @@ export interface WeddingTemplateData {
         Faq?: Variants<FaqData>;
         Contact?: Variants<ContactData>;
         ContactForm?: Variants<ContactFormData>;
-      };
-      templateComponents: {
-        [template: string]: {
-          shared: Record<string, string>;
-          pages: Record<string, { components: TemplateComponent[] }>;
-        };
       };
     };
   };
