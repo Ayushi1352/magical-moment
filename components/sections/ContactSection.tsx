@@ -30,7 +30,7 @@ export const ContactSection = ({ data, form, company, eventOptions }: Props) => 
             labelSizeClass="text-[1.1rem] tracking-[0.4em] lg:text-[3.19rem] lg:tracking-[0.27em]"
             labelLineClass="w-12 lg:w-[9.69rem]"
             labelGapClass="gap-4 lg:gap-[2.63rem]"
-            titleClassName="!font-bold !text-[var(--color-text-black)] lg:mt-[1.35rem] lg:text-[5.5rem] lg:leading-[5.5rem] lg:!tracking-[-0.03em]"
+            titleClassName="!font-bold !text-[var(--color-text-black)] lg:mt-[1.35rem] lg:!tracking-[-0.03em]"
             descriptionClass="lg:!mt-[0.75rem] lg:!text-[2.36rem] text-[var(--color-text-black)]"
           />
 

@@ -16,7 +16,7 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
   if (!data) return null;
 
   return (
-    <section id={data.id} className="relative bg-[var(--color-bg-main)] pb-14 pt-[8rem] sm:pb-16 sm:pt-[9.5rem] lg:pb-[5rem] lg:pt-[12.8rem]">
+    <section id={data.id} className="relative bg-[var(--color-bg-main)] pb-10 pt-[8rem] sm:pb-16 sm:pt-[9.5rem] lg:pb-[5rem] lg:pt-[12.8rem]">
       <DesignFrame height={1012} offset={210}>
         <div className="px-4 sm:px-6 lg:p-0">
           <h1

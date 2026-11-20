@@ -17,7 +17,7 @@ export const ServicesSection = ({ data }: { data?: ServicesData }) => {
             titleAccent={data.titleAccent}
             description={data.description}
             labelSizeClass="text-[1.1rem] tracking-[0.2em] lg:text-[2.93rem] lg:tracking-[0.16em]"
-            titleClassName="!font-bold lg:mt-[1.5rem] lg:text-[5.3rem] lg:leading-[5.3rem]"
+            titleClassName="!font-bold lg:mt-[1.5rem]"
             descriptionClass="lg:!mt-[0.85rem] lg:w-[75rem] lg:!text-[1.95rem] lg:!leading-[2.5rem]"
           />
           <ServicesSlider data={data} />

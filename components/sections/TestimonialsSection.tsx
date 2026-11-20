@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { TestimonialsData } from "@/types/templates.types";
 import { DesignFrame, sectionSpace } from "@/components/ui/DesignFrame";
-import { SectionLabel, accentClass, titleClass } from "@/components/ui/SectionHeading";
+import { SectionLabel, accentClass, titleClass, titleSizeClass } from "@/components/ui/SectionHeading";
 import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
 
 /**
@@ -26,9 +26,9 @@ export const TestimonialsSection = ({ data }: { data?: TestimonialsData }) => {
                 lineClass="w-12 lg:w-[4.69rem]"
                 gapClass="gap-4 lg:gap-[1.9rem]"
               />
-              <h2 className={`mt-5 !font-medium lg:mt-[4.15rem] lg:whitespace-nowrap ${titleClass}`}>
-                <span className="block text-[2.4rem] leading-[1.05] sm:text-[4rem] lg:text-[6.9rem] lg:leading-[6.8rem]">{data.titleTop}</span>
-                <span className="block text-[length:min(1.9rem,calc((100vw-2rem)/10.2))] leading-[1.1] sm:text-[3.4rem] lg:mt-[0.6rem] lg:text-[5.65rem] lg:leading-[7rem]">
+              <h2 className={`mt-5 !font-medium lg:mt-[4.15rem] lg:whitespace-nowrap ${titleSizeClass} ${titleClass}`}>
+                <span className="block">{data.titleTop}</span>
+                <span className="block">
                   {data.titleAccentLead} <span className={accentClass}>{data.titleAccent}</span>
                 </span>
               </h2>

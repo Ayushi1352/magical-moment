@@ -21,22 +21,22 @@ export const Footer = async ({ data, company }: { data?: FooterData; company: Co
   const copyright = fill(data.copyrightText, { year: await currentYear() });
 
   return (
-    <footer className="relative bg-[var(--color-navy-deep)] text-[var(--color-white)] lg:h-[46.56rem]">
+    <footer className="relative bg-[var(--color-navy-deep)] text-[var(--color-white)] lg:h-[40.9rem]">
       <div className="px-4 sm:px-6 lg:px-0">
         {/* phones and tablets: the quote on top, then the links and the contact details side by side */}
-        <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-8 pb-8 pt-10 sm:gap-x-12 sm:gap-y-10 sm:pb-10 sm:pt-12 lg:flex lg:h-[36rem] lg:gap-0 lg:p-0">
+        <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-8 pb-8 pt-10 sm:gap-x-12 sm:gap-y-10 sm:pb-10 sm:pt-12 lg:flex lg:h-[33.4rem] lg:gap-0 lg:p-0">
           {/* quote and heart */}
-          <div className="col-span-2 lg:ml-[9.56rem] lg:mt-[7.6rem] lg:w-[54.5rem]">
-            <p className="max-w-[55.6rem] font-heading text-[1.5rem] leading-[1.25] sm:text-[1.75rem] lg:text-[3.82rem] lg:leading-[4.53rem]">
+          <div className="col-span-2 lg:ml-[9.56rem] lg:mt-[5rem] lg:w-[54.5rem]">
+            <p className="max-w-[55.6rem] font-heading text-[1.2rem] leading-[1.4] sm:text-[1.4rem] lg:text-[2.75rem] lg:leading-[3.6rem]">
               {data.quoteText} <em className="font-semibold text-[var(--color-gold-bright)]">{data.quoteAccent}</em>
             </p>
             <HeartFlourish className="mt-4 w-[14rem] text-[var(--color-gold-ornament)] lg:ml-[13.94rem] lg:mt-[1.5rem] lg:w-[22.69rem]" />
           </div>
 
-          <span aria-hidden="true" className={`${divider} lg:ml-[2.38rem] lg:mt-[8.25rem] lg:h-[22.44rem]`} />
+          <span aria-hidden="true" className={`${divider} lg:ml-[2.38rem] lg:mt-[5.65rem] lg:h-[22.44rem]`} />
 
           {/* links */}
-          <nav aria-label={data.linksTitle} className="lg:ml-[4rem] lg:mt-[6.95rem] lg:w-[15.19rem]">
+          <nav aria-label={data.linksTitle} className="lg:ml-[4rem] lg:mt-[4.35rem] lg:w-[15.19rem]">
             <h2 className={heading}>{data.linksTitle}</h2>
             <span aria-hidden="true" className={underline} />
             <ul className="mt-4 grid gap-1.5 sm:mt-5 sm:gap-2 lg:mt-[1.4rem] lg:gap-0">
@@ -54,10 +54,10 @@ export const Footer = async ({ data, company }: { data?: FooterData; company: Co
             </ul>
           </nav>
 
-          <span aria-hidden="true" className={`${divider} lg:mt-[8.25rem] lg:h-[22.44rem]`} />
+          <span aria-hidden="true" className={`${divider} lg:mt-[5.65rem] lg:h-[22.44rem]`} />
 
           {/* contact details */}
-          <div className="lg:ml-[3rem] lg:mt-[6.3rem] lg:w-[26rem]">
+          <div className="lg:ml-[3rem] lg:mt-[3.7rem] lg:w-[26rem]">
             <h2 className={heading}>{data.contactsTitle}</h2>
             <span aria-hidden="true" className={underline} />
             <ul className="mt-4 grid gap-3 sm:mt-5 sm:gap-4 lg:mt-[1.25rem] lg:gap-[0.75rem]">
@@ -91,7 +91,7 @@ export const Footer = async ({ data, company }: { data?: FooterData; company: Co
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-5 border-t-[0.25rem] border-[var(--color-gold-bright)] lg:border-t-[0.4rem] py-6 sm:flex-row sm:justify-between lg:ml-[6.75rem] lg:mr-[6.44rem] lg:h-[10.56rem] lg:items-start lg:py-0 lg:pt-[1.75rem]">
+        <div className="flex flex-col items-center gap-5 border-t-[0.25rem] border-[var(--color-gold-bright)] lg:border-t-[0.4rem] py-6 sm:flex-row sm:justify-between lg:ml-[6.75rem] lg:mr-[6.44rem] lg:h-[7.5rem] lg:items-start lg:py-0 lg:pt-[1.75rem]">
           <p className="text-center font-sans text-[1rem] text-[var(--color-white)] sm:text-left lg:mt-[0.62rem] lg:text-[1.76rem]">{copyright}</p>
           <div className="flex items-center gap-4 lg:gap-0">
             <ul aria-label={data.socialLabel} className="flex gap-3 lg:gap-[1.6rem]">

@@ -5,6 +5,11 @@
 
 /** Serif title in navy */
 export const titleClass = "font-heading font-semibold leading-[1.1] tracking-[-0.015em] text-[var(--color-navy)]";
+/**
+ * Every section title has this size: 2rem on phones (a little smaller on the narrowest ones, so a one-line title still
+ * fits), 3rem on tablets and 5.5rem from 1024px up
+ */
+export const titleSizeClass = "text-[length:min(2rem,calc((100vw-2rem)/10.2))] sm:text-[3rem] lg:text-[5.5rem] lg:leading-[5.5rem]";
 /** the gold italic words of a title */
 export const accentClass = "italic text-[var(--color-gold)]";
 
@@ -53,7 +58,7 @@ type HeadingProps = {
   labelSizeClass?: string;
   labelLineClass?: string;
   labelGapClass?: string;
-  /** title size and the space above it */
+  /** space above the title (and its weight or colour, when a section differs) */
   titleClassName?: string;
   descriptionClass?: string;
   className?: string;
@@ -69,14 +74,13 @@ export const SectionHeading = ({
   labelSizeClass,
   labelLineClass,
   labelGapClass,
-  titleClassName = "lg:mt-[1.4rem] lg:text-[5.25rem]",
+  titleClassName = "lg:mt-[1.4rem]",
   descriptionClass = "",
   className = "",
 }: HeadingProps) => (
   <div data-reveal className={`flex flex-col items-center text-center ${className}`}>
     <SectionLabel text={label} textClass={labelTextClass} sizeClass={labelSizeClass} lineClass={labelLineClass} gapClass={labelGapClass} />
-    {/* 2rem on phones, a little smaller on the narrowest ones so a title never takes more than two lines */}
-    <h2 className={`mt-4 text-[length:min(2rem,calc((100vw-2rem)/9.6))] sm:text-[2.6rem] lg:whitespace-nowrap ${titleClass} ${titleClassName}`}>
+    <h2 className={`mt-4 lg:whitespace-nowrap ${titleSizeClass} ${titleClass} ${titleClassName}`}>
       {titleTop} <span className={accentClass}>{titleAccent}</span>
     </h2>
     {description && (

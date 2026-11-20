@@ -57,7 +57,9 @@ export const ServicesSlider = ({ data }: { data: ServicesData }) => {
             <LeafSprig side="left" className="pointer-events-none absolute bottom-[0.3rem] left-[0.2rem] w-[5rem] text-[var(--color-leaf)] lg:w-[6.13rem]" />
             <LeafSprig side="right" className="pointer-events-none absolute bottom-[0.3rem] right-[0.2rem] w-[6rem] text-[var(--color-leaf)] lg:w-[7.44rem]" />
             <div className="relative flex flex-1 flex-col items-center px-6 pb-10 pt-3 text-center lg:pb-0 lg:pt-[1.35rem]">
-              <h3 className="max-w-[17rem] font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:max-w-none lg:text-[2.8rem] lg:leading-[2.8rem]">
+              {/* the gold line under the title sits at the same height in every card: on phones and tablets the title is
+                  always two lines tall, from 1024px up (where the card has a fixed height) every title stays on one line */}
+              <h3 className="flex min-h-[2lh] max-w-[17rem] items-center justify-center font-heading text-[1.75rem] font-bold leading-[1.02] tracking-[-0.01em] text-[var(--color-navy)] transition-colors duration-300 group-hover:text-[var(--color-gold)] lg:block lg:min-h-0 lg:max-w-none lg:whitespace-nowrap lg:text-[2.5rem] lg:leading-[2.8rem]">
                 {service.title}
               </h3>
               <span aria-hidden="true" className="mt-4 flex items-center gap-[0.85rem] text-[var(--color-gold)] lg:mt-[1.8rem]">

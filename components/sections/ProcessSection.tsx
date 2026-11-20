@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ProcessData } from "@/types/templates.types";
 import { DesignFrame, sectionSpace } from "@/components/ui/DesignFrame";
-import { SectionLabel, titleClass } from "@/components/ui/SectionHeading";
+import { SectionLabel, titleClass, titleSizeClass } from "@/components/ui/SectionHeading";
 
 /*
   Where every step sits in the 1920px design (1 design pixel = 0.0625rem, from the top of the section):
@@ -52,7 +52,7 @@ export const ProcessSection = ({ data }: { data?: ProcessData }) => {
               lineClass="w-12 lg:w-[5.7rem]"
               gapClass="gap-3 lg:gap-[1.5rem]"
             />
-            <h2 className={`mt-4 text-[length:min(2.6rem,calc((100vw-2rem)/6.9))] !font-medium !tracking-[-0.037em] sm:text-[3.6rem] lg:mt-[2.3rem] lg:whitespace-nowrap lg:text-[6.05rem] lg:leading-[6rem] ${titleClass}`}>
+            <h2 className={`mt-4 !font-medium !tracking-[-0.037em] lg:mt-[2.3rem] lg:whitespace-nowrap ${titleSizeClass} ${titleClass}`}>
               <span className="block">{data.titleTop}</span>
               <span className="block text-[var(--color-gold)]">{data.titleAccent}</span>
             </h2>

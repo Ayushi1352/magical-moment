@@ -21,7 +21,7 @@ export const FaqSection = ({ data }: { data?: FaqData }) => {
             labelSizeClass="text-[1.1rem] tracking-[0.35em] lg:text-[3.2rem] lg:tracking-[0.23em]"
             labelLineClass="w-12 lg:w-[9.69rem]"
             labelGapClass="gap-4 lg:gap-[2.75rem]"
-            titleClassName="!font-bold lg:mt-[1.4rem] lg:text-[5.56rem] lg:leading-[5.35rem]"
+            titleClassName="!font-bold lg:mt-[1.4rem]"
             descriptionClass="lg:!mt-[0.3rem] lg:!text-[2.09rem] text-[var(--color-text-dark)]"
           />
 

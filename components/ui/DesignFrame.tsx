@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 
 /** Space above and below every section's content: the same on every screen, so all gaps between sections match */
-export const sectionSpace = "py-14 sm:py-16 lg:py-[5rem]";
+export const sectionSpace = "py-10 sm:py-16 lg:py-[5rem]";
 
 const rem = (px: number) => `${px / 16}rem`;
 
